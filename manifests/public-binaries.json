@@ -1,0 +1,2753 @@
+{
+  "schema": 1,
+  "scope": "pe-binaries-only",
+  "files": [
+    {
+      "path": "Client/CONFIG.exe",
+      "size": 29184,
+      "sha256": "86424e839ec26fb454cd343c451200e290cf528a88b53c2e77e7407573dac844",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 7611,
+        "image_size": 40960,
+        "headers_size": 1024,
+        "coff_timestamp": 1191930007,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 19858,
+            "raw_size": 19968,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 24576,
+            "virtual_size": 5590,
+            "raw_size": 5632,
+            "raw_offset": 20992,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 32768,
+            "virtual_size": 2744,
+            "raw_size": 1024,
+            "raw_offset": 26624,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 36864,
+            "virtual_size": 1528,
+            "raw_size": 1536,
+            "raw_offset": 27648,
+            "executable": false,
+            "characteristics": 1073741888
+          }
+        ]
+      },
+      "binary_id": "86424e839ec26fb4"
+    },
+    {
+      "path": "Client/GameGuard.des",
+      "size": 274625,
+      "sha256": "34c61a5935e328b64b341c1d0334e02f55966b22434c0a3c3620233c69b64a9f",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 436832,
+        "image_size": 442368,
+        "headers_size": 4096,
+        "coff_timestamp": 1193279025,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 335872,
+            "raw_size": 0,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 3758096512
+          },
+          {
+            "name": ".rdata",
+            "rva": 339968,
+            "virtual_size": 98304,
+            "raw_size": 97792,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 3758096448
+          },
+          {
+            "name": ".rsrc",
+            "rva": 438272,
+            "virtual_size": 4096,
+            "raw_size": 3584,
+            "raw_offset": 98816,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      },
+      "binary_id": "34c61a5935e328b6"
+    },
+    {
+      "path": "Client/Updater.exe",
+      "size": 2596864,
+      "sha256": "05a39841f490dbc2db6a5a957cd49338f7c2b71906e4fb18479c6de50d3b28b7",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 146678,
+        "image_size": 2621440,
+        "headers_size": 4096,
+        "coff_timestamp": 1197514409,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 285070,
+            "raw_size": 286720,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 290816,
+            "virtual_size": 69384,
+            "raw_size": 69632,
+            "raw_offset": 290816,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 360448,
+            "virtual_size": 40820,
+            "raw_size": 16384,
+            "raw_offset": 360448,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 401408,
+            "virtual_size": 2218208,
+            "raw_size": 2220032,
+            "raw_offset": 376832,
+            "executable": false,
+            "characteristics": 1073741888
+          }
+        ]
+      },
+      "binary_id": "05a39841f490dbc2"
+    },
+    {
+      "path": "Client/game.exe",
+      "size": 2289664,
+      "sha256": "2281679d7b2ec3a02f7afee684f1c497a81ddf1322a46e8e74931e008c204085",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 1526839,
+        "image_size": 30801920,
+        "headers_size": 4096,
+        "coff_timestamp": 1197624952,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 1966484,
+            "raw_size": 1970176,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 1974272,
+            "virtual_size": 142382,
+            "raw_size": 143360,
+            "raw_offset": 1974272,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 2117632,
+            "virtual_size": 28627605,
+            "raw_size": 118784,
+            "raw_offset": 2117632,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".sxdata",
+            "rva": 30748672,
+            "virtual_size": 8,
+            "raw_size": 4096,
+            "raw_offset": 2236416,
+            "executable": false,
+            "characteristics": 3221226048
+          },
+          {
+            "name": ".rsrc",
+            "rva": 30752768,
+            "virtual_size": 48048,
+            "raw_size": 49152,
+            "raw_offset": 2240512,
+            "executable": false,
+            "characteristics": 1073741888
+          }
+        ]
+      },
+      "binary_id": "2281679d7b2ec3a0"
+    },
+    {
+      "path": "Client/ijl15.dll",
+      "size": 372736,
+      "sha256": "334aa12f7dee453d1c6cb1b661a3bb3494d3e4cc9c2ff3f9002064c78404e43a",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 1610612736,
+        "entry_rva": 294767,
+        "image_size": 380928,
+        "headers_size": 4096,
+        "coff_timestamp": 969018715,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 316890,
+            "raw_size": 319488,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 323584,
+            "virtual_size": 3324,
+            "raw_size": 4096,
+            "raw_offset": 323584,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 327680,
+            "virtual_size": 21692,
+            "raw_size": 16384,
+            "raw_offset": 327680,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".data1",
+            "rva": 352256,
+            "virtual_size": 9664,
+            "raw_size": 12288,
+            "raw_offset": 344064,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 364544,
+            "virtual_size": 904,
+            "raw_size": 4096,
+            "raw_offset": 356352,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 368640,
+            "virtual_size": 11222,
+            "raw_size": 12288,
+            "raw_offset": 360448,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "334aa12f7dee453d"
+    },
+    {
+      "path": "Client/zlib.dll",
+      "size": 53760,
+      "sha256": "0df0c22bf411ad670d7b8fe5a533e4831313d5a3118cf9216389c642c90ec2f9",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 42928,
+        "image_size": 69632,
+        "headers_size": 1024,
+        "coff_timestamp": 964697592,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 38954,
+            "raw_size": 39424,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 45056,
+            "virtual_size": 5493,
+            "raw_size": 5632,
+            "raw_offset": 40448,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 53248,
+            "virtual_size": 6300,
+            "raw_size": 5632,
+            "raw_offset": 46080,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 61440,
+            "virtual_size": 880,
+            "raw_size": 1024,
+            "raw_offset": 51712,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 65536,
+            "virtual_size": 686,
+            "raw_size": 1024,
+            "raw_offset": 52736,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "0df0c22bf411ad67"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/dbgeng.dll",
+      "size": 2358272,
+      "sha256": "7cf99fd59349bd0124ed0c07d1cca3d6b869c9568c18650b18f73b555e149009",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 33554432,
+        "entry_rva": 1922544,
+        "image_size": 2600960,
+        "headers_size": 1024,
+        "coff_timestamp": 1085444871,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 2185547,
+            "raw_size": 2185728,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".data",
+            "rva": 2191360,
+            "virtual_size": 307396,
+            "raw_size": 76288,
+            "raw_offset": 2186752,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 2502656,
+            "virtual_size": 1008,
+            "raw_size": 1024,
+            "raw_offset": 2263040,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 2506752,
+            "virtual_size": 94146,
+            "raw_size": 94208,
+            "raw_offset": 2264064,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "7cf99fd59349bd01"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/dbghelp.dll",
+      "size": 940032,
+      "sha256": "412f6c0ed936316275e68e21df7255e4e35fad14e114e479e8c5c9d75ecac88c",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 41943040,
+        "entry_rva": 430000,
+        "image_size": 1048576,
+        "headers_size": 1024,
+        "coff_timestamp": 1085444883,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 865361,
+            "raw_size": 865792,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".data",
+            "rva": 872448,
+            "virtual_size": 114568,
+            "raw_size": 16896,
+            "raw_offset": 866816,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 987136,
+            "virtual_size": 984,
+            "raw_size": 1024,
+            "raw_offset": 883712,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 991232,
+            "virtual_size": 54952,
+            "raw_size": 55296,
+            "raw_offset": 884736,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "412f6c0ed9363162"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ggauth.dll",
+      "size": 86016,
+      "sha256": "1152380264a55063f77914c04026ee7981706f9e7f3e66eded86141370c57695",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 30580,
+        "image_size": 90112,
+        "headers_size": 4096,
+        "coff_timestamp": 1110418717,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 47734,
+            "raw_size": 49152,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 53248,
+            "virtual_size": 3143,
+            "raw_size": 4096,
+            "raw_offset": 53248,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 57344,
+            "virtual_size": 17632,
+            "raw_size": 16384,
+            "raw_offset": 57344,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 77824,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 73728,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 81920,
+            "virtual_size": 4214,
+            "raw_size": 8192,
+            "raw_offset": 77824,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "1152380264a55063"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ggauth53.dll",
+      "size": 221184,
+      "sha256": "e64a1a4292bc60d7364a6921822d00a9389063b4a57fc69ce5ff90132d88f58e",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 146644,
+        "image_size": 221184,
+        "headers_size": 4096,
+        "coff_timestamp": 1141803201,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 163814,
+            "raw_size": 163840,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 167936,
+            "virtual_size": 7384,
+            "raw_size": 8192,
+            "raw_offset": 167936,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 176128,
+            "virtual_size": 26784,
+            "raw_size": 28672,
+            "raw_offset": 176128,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 204800,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 204800,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 208896,
+            "virtual_size": 11660,
+            "raw_size": 12288,
+            "raw_offset": 208896,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "e64a1a4292bc60d7"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ggauth54.dll",
+      "size": 184320,
+      "sha256": "3ebc4f4affdb09c468c6f4ed843d5174080048103d3b95551052e4eb44228ec9",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 112980,
+        "image_size": 188416,
+        "headers_size": 4096,
+        "coff_timestamp": 1141803701,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 130134,
+            "raw_size": 131072,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 135168,
+            "virtual_size": 7384,
+            "raw_size": 8192,
+            "raw_offset": 135168,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 143360,
+            "virtual_size": 25952,
+            "raw_size": 24576,
+            "raw_offset": 143360,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 172032,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 167936,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 176128,
+            "virtual_size": 10972,
+            "raw_size": 12288,
+            "raw_offset": 172032,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "3ebc4f4affdb09c4"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ggauth55.dll",
+      "size": 172032,
+      "sha256": "f2a46bbd1e7674c4d20d96ca844c900f6d3d520d2ef480cd4c2457eee8c3e9f7",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 99332,
+        "image_size": 176128,
+        "headers_size": 4096,
+        "coff_timestamp": 1141804559,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 116486,
+            "raw_size": 118784,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 122880,
+            "virtual_size": 7384,
+            "raw_size": 8192,
+            "raw_offset": 122880,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 131072,
+            "virtual_size": 25056,
+            "raw_size": 24576,
+            "raw_offset": 131072,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 159744,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 155648,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 163840,
+            "virtual_size": 9382,
+            "raw_size": 12288,
+            "raw_offset": 159744,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "f2a46bbd1e7674c4"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ggauth60.dll",
+      "size": 126976,
+      "sha256": "83a46bb09eaf5e6ca720411d9eb8230ade41b17bcdfb5b4d423dc8a27594fe96",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 61044,
+        "image_size": 131072,
+        "headers_size": 4096,
+        "coff_timestamp": 1179203754,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 78214,
+            "raw_size": 81920,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 86016,
+            "virtual_size": 7384,
+            "raw_size": 8192,
+            "raw_offset": 86016,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 94208,
+            "virtual_size": 22016,
+            "raw_size": 20480,
+            "raw_offset": 94208,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 118784,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 114688,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 122880,
+            "virtual_size": 5324,
+            "raw_size": 8192,
+            "raw_offset": 118784,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "83a46bb09eaf5e6c"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ggsrvdll.dll",
+      "size": 57344,
+      "sha256": "e96115e565a4db0d334222a483c2dc7bfae0895d3c611b8ce1d1ba3172545b61",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 6464,
+        "image_size": 65536,
+        "headers_size": 4096,
+        "coff_timestamp": 1103849194,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 28214,
+            "raw_size": 28672,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 32768,
+            "virtual_size": 3611,
+            "raw_size": 4096,
+            "raw_offset": 32768,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 36864,
+            "virtual_size": 17764,
+            "raw_size": 12288,
+            "raw_offset": 36864,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 57344,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 49152,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 61440,
+            "virtual_size": 3460,
+            "raw_size": 4096,
+            "raw_offset": 53248,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "e96115e565a4db0d"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ps_dbAgent.exe",
+      "size": 409600,
+      "sha256": "ee9ee6c5494dd69fbb6e18e66a88b6f21ffb21d593603c35cdf020725aa751fc",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 233403,
+        "image_size": 430080,
+        "headers_size": 4096,
+        "coff_timestamp": 1199447182,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 341300,
+            "raw_size": 344064,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 348160,
+            "virtual_size": 49272,
+            "raw_size": 53248,
+            "raw_offset": 348160,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 401408,
+            "virtual_size": 28352,
+            "raw_size": 8192,
+            "raw_offset": 401408,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      },
+      "binary_id": "ee9ee6c5494dd69f"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ps_game.exe",
+      "size": 1069056,
+      "sha256": "a843dcbd1f767954bca0e1c6a9018948c8e1fc2289beae11b1dfcd69e8c816da",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 804814,
+        "image_size": 55791616,
+        "headers_size": 4096,
+        "coff_timestamp": 1200548554,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 896116,
+            "raw_size": 897024,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 901120,
+            "virtual_size": 85944,
+            "raw_size": 86016,
+            "raw_offset": 901120,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 987136,
+            "virtual_size": 54801672,
+            "raw_size": 81920,
+            "raw_offset": 987136,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      },
+      "binary_id": "a843dcbd1f767954"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ps_gameLog.exe",
+      "size": 299008,
+      "sha256": "d19bb3a2dbef263540e5888d4c36baaac534b80a9ed330b38e24cfe8e35c3ab7",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 129349,
+        "image_size": 1245184,
+        "headers_size": 4096,
+        "coff_timestamp": 1196995599,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 237668,
+            "raw_size": 241664,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 245760,
+            "virtual_size": 43340,
+            "raw_size": 45056,
+            "raw_offset": 245760,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 290816,
+            "virtual_size": 952320,
+            "raw_size": 8192,
+            "raw_offset": 290816,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      },
+      "binary_id": "d19bb3a2dbef2635"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ps_login.exe",
+      "size": 319488,
+      "sha256": "2f9a0b2a47209861f479a89d38268918d2ee39bf8f1afceb4644789f537c4b0f",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 187714,
+        "image_size": 499712,
+        "headers_size": 4096,
+        "coff_timestamp": 1196995618,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 254148,
+            "raw_size": 258048,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 262144,
+            "virtual_size": 48652,
+            "raw_size": 49152,
+            "raw_offset": 262144,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 311296,
+            "virtual_size": 188040,
+            "raw_size": 8192,
+            "raw_offset": 311296,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      },
+      "binary_id": "2f9a0b2a47209861"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ps_session.exe",
+      "size": 311296,
+      "sha256": "31ec1b5cf818c403034da3b321bddbb02a97f47ad47840907212344185c76a3f",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 149612,
+        "image_size": 360448,
+        "headers_size": 4096,
+        "coff_timestamp": 1196995625,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 256324,
+            "raw_size": 258048,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 262144,
+            "virtual_size": 39008,
+            "raw_size": 40960,
+            "raw_offset": 262144,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 303104,
+            "virtual_size": 55136,
+            "raw_size": 8192,
+            "raw_offset": 303104,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      },
+      "binary_id": "31ec1b5cf818c403"
+    },
+    {
+      "path": "Server/PSM_Client/Bin/ps_userLog.exe",
+      "size": 282624,
+      "sha256": "de0ee6f1b6542eec95fcc70b819827d90ee261a869faaeaba18e582cbf5fdb3b",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 118051,
+        "image_size": 307200,
+        "headers_size": 4096,
+        "coff_timestamp": 1196995630,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 226692,
+            "raw_size": 229376,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 233472,
+            "virtual_size": 37956,
+            "raw_size": 40960,
+            "raw_offset": 233472,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 274432,
+            "virtual_size": 30848,
+            "raw_size": 8192,
+            "raw_offset": 274432,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      },
+      "binary_id": "de0ee6f1b6542eec"
+    },
+    {
+      "path": "Server/PSM_Client/PSM_Agent.exe",
+      "size": 512000,
+      "sha256": "ac696575d1c5894ff4b88f1d28cdce642960bf8eec17b9cef33f7adcbfcb7184",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 179016,
+        "image_size": 2125824,
+        "headers_size": 4096,
+        "coff_timestamp": 1171359037,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 405534,
+            "raw_size": 409600,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 413696,
+            "virtual_size": 85790,
+            "raw_size": 86016,
+            "raw_offset": 413696,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 499712,
+            "virtual_size": 1623480,
+            "raw_size": 12288,
+            "raw_offset": 499712,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      },
+      "binary_id": "ac696575d1c5894f"
+    },
+    {
+      "path": "Server/PSM_Client/dbgeng.dll",
+      "size": 2358272,
+      "sha256": "7cf99fd59349bd0124ed0c07d1cca3d6b869c9568c18650b18f73b555e149009",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 33554432,
+        "entry_rva": 1922544,
+        "image_size": 2600960,
+        "headers_size": 1024,
+        "coff_timestamp": 1085444871,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 2185547,
+            "raw_size": 2185728,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".data",
+            "rva": 2191360,
+            "virtual_size": 307396,
+            "raw_size": 76288,
+            "raw_offset": 2186752,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 2502656,
+            "virtual_size": 1008,
+            "raw_size": 1024,
+            "raw_offset": 2263040,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 2506752,
+            "virtual_size": 94146,
+            "raw_size": 94208,
+            "raw_offset": 2264064,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "7cf99fd59349bd01"
+    },
+    {
+      "path": "Server/PSM_Client/dbghelp.dll",
+      "size": 940032,
+      "sha256": "412f6c0ed936316275e68e21df7255e4e35fad14e114e479e8c5c9d75ecac88c",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 41943040,
+        "entry_rva": 430000,
+        "image_size": 1048576,
+        "headers_size": 1024,
+        "coff_timestamp": 1085444883,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 865361,
+            "raw_size": 865792,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".data",
+            "rva": 872448,
+            "virtual_size": 114568,
+            "raw_size": 16896,
+            "raw_offset": 866816,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 987136,
+            "virtual_size": 984,
+            "raw_size": 1024,
+            "raw_offset": 883712,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 991232,
+            "virtual_size": 54952,
+            "raw_size": 55296,
+            "raw_offset": 884736,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "412f6c0ed9363162"
+    },
+    {
+      "path": "Server/PSM_Server/PSMServer_Agent.exe",
+      "size": 507904,
+      "sha256": "d82a64629ec08995ead82667d88baab36d34722d1e17c64360fed6ab748eb95c",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 178600,
+        "image_size": 2121728,
+        "headers_size": 4096,
+        "coff_timestamp": 1171359032,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 405118,
+            "raw_size": 405504,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 409600,
+            "virtual_size": 85654,
+            "raw_size": 86016,
+            "raw_offset": 409600,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 495616,
+            "virtual_size": 1623480,
+            "raw_size": 12288,
+            "raw_offset": 495616,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      },
+      "binary_id": "d82a64629ec08995"
+    },
+    {
+      "path": "Server/PSM_Server/PSMServer_Mgr.exe",
+      "size": 839680,
+      "sha256": "902b4d806404771fd2c0853d7130e64a0d7c6261c06a0e7643da848ec06e2897",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 286414,
+        "image_size": 3702784,
+        "headers_size": 4096,
+        "coff_timestamp": 1191311278,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 612162,
+            "raw_size": 614400,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 618496,
+            "virtual_size": 145828,
+            "raw_size": 147456,
+            "raw_offset": 618496,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 765952,
+            "virtual_size": 2877080,
+            "raw_size": 16384,
+            "raw_offset": 765952,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 3645440,
+            "virtual_size": 53832,
+            "raw_size": 57344,
+            "raw_offset": 782336,
+            "executable": false,
+            "characteristics": 1073741888
+          }
+        ]
+      },
+      "binary_id": "902b4d806404771f"
+    },
+    {
+      "path": "Server/PSM_Server/dbgeng.dll",
+      "size": 2358272,
+      "sha256": "7cf99fd59349bd0124ed0c07d1cca3d6b869c9568c18650b18f73b555e149009",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 33554432,
+        "entry_rva": 1922544,
+        "image_size": 2600960,
+        "headers_size": 1024,
+        "coff_timestamp": 1085444871,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 2185547,
+            "raw_size": 2185728,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".data",
+            "rva": 2191360,
+            "virtual_size": 307396,
+            "raw_size": 76288,
+            "raw_offset": 2186752,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 2502656,
+            "virtual_size": 1008,
+            "raw_size": 1024,
+            "raw_offset": 2263040,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 2506752,
+            "virtual_size": 94146,
+            "raw_size": 94208,
+            "raw_offset": 2264064,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "7cf99fd59349bd01"
+    },
+    {
+      "path": "Server/PSM_Server/dbghelp.dll",
+      "size": 940032,
+      "sha256": "412f6c0ed936316275e68e21df7255e4e35fad14e114e479e8c5c9d75ecac88c",
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 41943040,
+        "entry_rva": 430000,
+        "image_size": 1048576,
+        "headers_size": 1024,
+        "coff_timestamp": 1085444883,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 865361,
+            "raw_size": 865792,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".data",
+            "rva": 872448,
+            "virtual_size": 114568,
+            "raw_size": 16896,
+            "raw_offset": 866816,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 987136,
+            "virtual_size": 984,
+            "raw_size": 1024,
+            "raw_offset": 883712,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 991232,
+            "virtual_size": 54952,
+            "raw_size": 55296,
+            "raw_offset": 884736,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      },
+      "binary_id": "412f6c0ed9363162"
+    }
+  ],
+  "binaries": [
+    {
+      "binary_id": "86424e839ec26fb4",
+      "sha256": "86424e839ec26fb454cd343c451200e290cf528a88b53c2e77e7407573dac844",
+      "paths": [
+        "Client/CONFIG.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 7611,
+        "image_size": 40960,
+        "headers_size": 1024,
+        "coff_timestamp": 1191930007,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 19858,
+            "raw_size": 19968,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 24576,
+            "virtual_size": 5590,
+            "raw_size": 5632,
+            "raw_offset": 20992,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 32768,
+            "virtual_size": 2744,
+            "raw_size": 1024,
+            "raw_offset": 26624,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 36864,
+            "virtual_size": 1528,
+            "raw_size": 1536,
+            "raw_offset": 27648,
+            "executable": false,
+            "characteristics": 1073741888
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "34c61a5935e328b6",
+      "sha256": "34c61a5935e328b64b341c1d0334e02f55966b22434c0a3c3620233c69b64a9f",
+      "paths": [
+        "Client/GameGuard.des"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 436832,
+        "image_size": 442368,
+        "headers_size": 4096,
+        "coff_timestamp": 1193279025,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 335872,
+            "raw_size": 0,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 3758096512
+          },
+          {
+            "name": ".rdata",
+            "rva": 339968,
+            "virtual_size": 98304,
+            "raw_size": 97792,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 3758096448
+          },
+          {
+            "name": ".rsrc",
+            "rva": 438272,
+            "virtual_size": 4096,
+            "raw_size": 3584,
+            "raw_offset": 98816,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "05a39841f490dbc2",
+      "sha256": "05a39841f490dbc2db6a5a957cd49338f7c2b71906e4fb18479c6de50d3b28b7",
+      "paths": [
+        "Client/Updater.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 146678,
+        "image_size": 2621440,
+        "headers_size": 4096,
+        "coff_timestamp": 1197514409,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 285070,
+            "raw_size": 286720,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 290816,
+            "virtual_size": 69384,
+            "raw_size": 69632,
+            "raw_offset": 290816,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 360448,
+            "virtual_size": 40820,
+            "raw_size": 16384,
+            "raw_offset": 360448,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 401408,
+            "virtual_size": 2218208,
+            "raw_size": 2220032,
+            "raw_offset": 376832,
+            "executable": false,
+            "characteristics": 1073741888
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "2281679d7b2ec3a0",
+      "sha256": "2281679d7b2ec3a02f7afee684f1c497a81ddf1322a46e8e74931e008c204085",
+      "paths": [
+        "Client/game.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 1526839,
+        "image_size": 30801920,
+        "headers_size": 4096,
+        "coff_timestamp": 1197624952,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 1966484,
+            "raw_size": 1970176,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 1974272,
+            "virtual_size": 142382,
+            "raw_size": 143360,
+            "raw_offset": 1974272,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 2117632,
+            "virtual_size": 28627605,
+            "raw_size": 118784,
+            "raw_offset": 2117632,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".sxdata",
+            "rva": 30748672,
+            "virtual_size": 8,
+            "raw_size": 4096,
+            "raw_offset": 2236416,
+            "executable": false,
+            "characteristics": 3221226048
+          },
+          {
+            "name": ".rsrc",
+            "rva": 30752768,
+            "virtual_size": 48048,
+            "raw_size": 49152,
+            "raw_offset": 2240512,
+            "executable": false,
+            "characteristics": 1073741888
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "334aa12f7dee453d",
+      "sha256": "334aa12f7dee453d1c6cb1b661a3bb3494d3e4cc9c2ff3f9002064c78404e43a",
+      "paths": [
+        "Client/ijl15.dll"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 1610612736,
+        "entry_rva": 294767,
+        "image_size": 380928,
+        "headers_size": 4096,
+        "coff_timestamp": 969018715,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 316890,
+            "raw_size": 319488,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 323584,
+            "virtual_size": 3324,
+            "raw_size": 4096,
+            "raw_offset": 323584,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 327680,
+            "virtual_size": 21692,
+            "raw_size": 16384,
+            "raw_offset": 327680,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".data1",
+            "rva": 352256,
+            "virtual_size": 9664,
+            "raw_size": 12288,
+            "raw_offset": 344064,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 364544,
+            "virtual_size": 904,
+            "raw_size": 4096,
+            "raw_offset": 356352,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 368640,
+            "virtual_size": 11222,
+            "raw_size": 12288,
+            "raw_offset": 360448,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "0df0c22bf411ad67",
+      "sha256": "0df0c22bf411ad670d7b8fe5a533e4831313d5a3118cf9216389c642c90ec2f9",
+      "paths": [
+        "Client/zlib.dll"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 42928,
+        "image_size": 69632,
+        "headers_size": 1024,
+        "coff_timestamp": 964697592,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 38954,
+            "raw_size": 39424,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 45056,
+            "virtual_size": 5493,
+            "raw_size": 5632,
+            "raw_offset": 40448,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 53248,
+            "virtual_size": 6300,
+            "raw_size": 5632,
+            "raw_offset": 46080,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 61440,
+            "virtual_size": 880,
+            "raw_size": 1024,
+            "raw_offset": 51712,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 65536,
+            "virtual_size": 686,
+            "raw_size": 1024,
+            "raw_offset": 52736,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "7cf99fd59349bd01",
+      "sha256": "7cf99fd59349bd0124ed0c07d1cca3d6b869c9568c18650b18f73b555e149009",
+      "paths": [
+        "Server/PSM_Client/Bin/dbgeng.dll",
+        "Server/PSM_Client/dbgeng.dll",
+        "Server/PSM_Server/dbgeng.dll"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 33554432,
+        "entry_rva": 1922544,
+        "image_size": 2600960,
+        "headers_size": 1024,
+        "coff_timestamp": 1085444871,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 2185547,
+            "raw_size": 2185728,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".data",
+            "rva": 2191360,
+            "virtual_size": 307396,
+            "raw_size": 76288,
+            "raw_offset": 2186752,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 2502656,
+            "virtual_size": 1008,
+            "raw_size": 1024,
+            "raw_offset": 2263040,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 2506752,
+            "virtual_size": 94146,
+            "raw_size": 94208,
+            "raw_offset": 2264064,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "412f6c0ed9363162",
+      "sha256": "412f6c0ed936316275e68e21df7255e4e35fad14e114e479e8c5c9d75ecac88c",
+      "paths": [
+        "Server/PSM_Client/Bin/dbghelp.dll",
+        "Server/PSM_Client/dbghelp.dll",
+        "Server/PSM_Server/dbghelp.dll"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 41943040,
+        "entry_rva": 430000,
+        "image_size": 1048576,
+        "headers_size": 1024,
+        "coff_timestamp": 1085444883,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 865361,
+            "raw_size": 865792,
+            "raw_offset": 1024,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".data",
+            "rva": 872448,
+            "virtual_size": 114568,
+            "raw_size": 16896,
+            "raw_offset": 866816,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 987136,
+            "virtual_size": 984,
+            "raw_size": 1024,
+            "raw_offset": 883712,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 991232,
+            "virtual_size": 54952,
+            "raw_size": 55296,
+            "raw_offset": 884736,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "1152380264a55063",
+      "sha256": "1152380264a55063f77914c04026ee7981706f9e7f3e66eded86141370c57695",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth.dll"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 30580,
+        "image_size": 90112,
+        "headers_size": 4096,
+        "coff_timestamp": 1110418717,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 47734,
+            "raw_size": 49152,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 53248,
+            "virtual_size": 3143,
+            "raw_size": 4096,
+            "raw_offset": 53248,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 57344,
+            "virtual_size": 17632,
+            "raw_size": 16384,
+            "raw_offset": 57344,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 77824,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 73728,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 81920,
+            "virtual_size": 4214,
+            "raw_size": 8192,
+            "raw_offset": 77824,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "e64a1a4292bc60d7",
+      "sha256": "e64a1a4292bc60d7364a6921822d00a9389063b4a57fc69ce5ff90132d88f58e",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth53.dll"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 146644,
+        "image_size": 221184,
+        "headers_size": 4096,
+        "coff_timestamp": 1141803201,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 163814,
+            "raw_size": 163840,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 167936,
+            "virtual_size": 7384,
+            "raw_size": 8192,
+            "raw_offset": 167936,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 176128,
+            "virtual_size": 26784,
+            "raw_size": 28672,
+            "raw_offset": 176128,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 204800,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 204800,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 208896,
+            "virtual_size": 11660,
+            "raw_size": 12288,
+            "raw_offset": 208896,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "3ebc4f4affdb09c4",
+      "sha256": "3ebc4f4affdb09c468c6f4ed843d5174080048103d3b95551052e4eb44228ec9",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth54.dll"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 112980,
+        "image_size": 188416,
+        "headers_size": 4096,
+        "coff_timestamp": 1141803701,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 130134,
+            "raw_size": 131072,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 135168,
+            "virtual_size": 7384,
+            "raw_size": 8192,
+            "raw_offset": 135168,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 143360,
+            "virtual_size": 25952,
+            "raw_size": 24576,
+            "raw_offset": 143360,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 172032,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 167936,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 176128,
+            "virtual_size": 10972,
+            "raw_size": 12288,
+            "raw_offset": 172032,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "f2a46bbd1e7674c4",
+      "sha256": "f2a46bbd1e7674c4d20d96ca844c900f6d3d520d2ef480cd4c2457eee8c3e9f7",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth55.dll"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 99332,
+        "image_size": 176128,
+        "headers_size": 4096,
+        "coff_timestamp": 1141804559,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 116486,
+            "raw_size": 118784,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 122880,
+            "virtual_size": 7384,
+            "raw_size": 8192,
+            "raw_offset": 122880,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 131072,
+            "virtual_size": 25056,
+            "raw_size": 24576,
+            "raw_offset": 131072,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 159744,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 155648,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 163840,
+            "virtual_size": 9382,
+            "raw_size": 12288,
+            "raw_offset": 159744,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "83a46bb09eaf5e6c",
+      "sha256": "83a46bb09eaf5e6ca720411d9eb8230ade41b17bcdfb5b4d423dc8a27594fe96",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth60.dll"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 61044,
+        "image_size": 131072,
+        "headers_size": 4096,
+        "coff_timestamp": 1179203754,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 78214,
+            "raw_size": 81920,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 86016,
+            "virtual_size": 7384,
+            "raw_size": 8192,
+            "raw_offset": 86016,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 94208,
+            "virtual_size": 22016,
+            "raw_size": 20480,
+            "raw_offset": 94208,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 118784,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 114688,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 122880,
+            "virtual_size": 5324,
+            "raw_size": 8192,
+            "raw_offset": 118784,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "e96115e565a4db0d",
+      "sha256": "e96115e565a4db0d334222a483c2dc7bfae0895d3c611b8ce1d1ba3172545b61",
+      "paths": [
+        "Server/PSM_Client/Bin/ggsrvdll.dll"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 268435456,
+        "entry_rva": 6464,
+        "image_size": 65536,
+        "headers_size": 4096,
+        "coff_timestamp": 1103849194,
+        "dll": true,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 28214,
+            "raw_size": 28672,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 32768,
+            "virtual_size": 3611,
+            "raw_size": 4096,
+            "raw_offset": 32768,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 36864,
+            "virtual_size": 17764,
+            "raw_size": 12288,
+            "raw_offset": 36864,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 57344,
+            "virtual_size": 984,
+            "raw_size": 4096,
+            "raw_offset": 49152,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".reloc",
+            "rva": 61440,
+            "virtual_size": 3460,
+            "raw_size": 4096,
+            "raw_offset": 53248,
+            "executable": false,
+            "characteristics": 1107296320
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "ee9ee6c5494dd69f",
+      "sha256": "ee9ee6c5494dd69fbb6e18e66a88b6f21ffb21d593603c35cdf020725aa751fc",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_dbAgent.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 233403,
+        "image_size": 430080,
+        "headers_size": 4096,
+        "coff_timestamp": 1199447182,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 341300,
+            "raw_size": 344064,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 348160,
+            "virtual_size": 49272,
+            "raw_size": 53248,
+            "raw_offset": 348160,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 401408,
+            "virtual_size": 28352,
+            "raw_size": 8192,
+            "raw_offset": 401408,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "a843dcbd1f767954",
+      "sha256": "a843dcbd1f767954bca0e1c6a9018948c8e1fc2289beae11b1dfcd69e8c816da",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_game.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 804814,
+        "image_size": 55791616,
+        "headers_size": 4096,
+        "coff_timestamp": 1200548554,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 896116,
+            "raw_size": 897024,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 901120,
+            "virtual_size": 85944,
+            "raw_size": 86016,
+            "raw_offset": 901120,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 987136,
+            "virtual_size": 54801672,
+            "raw_size": 81920,
+            "raw_offset": 987136,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "d19bb3a2dbef2635",
+      "sha256": "d19bb3a2dbef263540e5888d4c36baaac534b80a9ed330b38e24cfe8e35c3ab7",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_gameLog.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 129349,
+        "image_size": 1245184,
+        "headers_size": 4096,
+        "coff_timestamp": 1196995599,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 237668,
+            "raw_size": 241664,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 245760,
+            "virtual_size": 43340,
+            "raw_size": 45056,
+            "raw_offset": 245760,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 290816,
+            "virtual_size": 952320,
+            "raw_size": 8192,
+            "raw_offset": 290816,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "2f9a0b2a47209861",
+      "sha256": "2f9a0b2a47209861f479a89d38268918d2ee39bf8f1afceb4644789f537c4b0f",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_login.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 187714,
+        "image_size": 499712,
+        "headers_size": 4096,
+        "coff_timestamp": 1196995618,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 254148,
+            "raw_size": 258048,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 262144,
+            "virtual_size": 48652,
+            "raw_size": 49152,
+            "raw_offset": 262144,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 311296,
+            "virtual_size": 188040,
+            "raw_size": 8192,
+            "raw_offset": 311296,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "31ec1b5cf818c403",
+      "sha256": "31ec1b5cf818c403034da3b321bddbb02a97f47ad47840907212344185c76a3f",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_session.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 149612,
+        "image_size": 360448,
+        "headers_size": 4096,
+        "coff_timestamp": 1196995625,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 256324,
+            "raw_size": 258048,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 262144,
+            "virtual_size": 39008,
+            "raw_size": 40960,
+            "raw_offset": 262144,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 303104,
+            "virtual_size": 55136,
+            "raw_size": 8192,
+            "raw_offset": 303104,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "de0ee6f1b6542eec",
+      "sha256": "de0ee6f1b6542eec95fcc70b819827d90ee261a869faaeaba18e582cbf5fdb3b",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_userLog.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 118051,
+        "image_size": 307200,
+        "headers_size": 4096,
+        "coff_timestamp": 1196995630,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 226692,
+            "raw_size": 229376,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 233472,
+            "virtual_size": 37956,
+            "raw_size": 40960,
+            "raw_offset": 233472,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 274432,
+            "virtual_size": 30848,
+            "raw_size": 8192,
+            "raw_offset": 274432,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "ac696575d1c5894f",
+      "sha256": "ac696575d1c5894ff4b88f1d28cdce642960bf8eec17b9cef33f7adcbfcb7184",
+      "paths": [
+        "Server/PSM_Client/PSM_Agent.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 179016,
+        "image_size": 2125824,
+        "headers_size": 4096,
+        "coff_timestamp": 1171359037,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 405534,
+            "raw_size": 409600,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 413696,
+            "virtual_size": 85790,
+            "raw_size": 86016,
+            "raw_offset": 413696,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 499712,
+            "virtual_size": 1623480,
+            "raw_size": 12288,
+            "raw_offset": 499712,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "d82a64629ec08995",
+      "sha256": "d82a64629ec08995ead82667d88baab36d34722d1e17c64360fed6ab748eb95c",
+      "paths": [
+        "Server/PSM_Server/PSMServer_Agent.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 178600,
+        "image_size": 2121728,
+        "headers_size": 4096,
+        "coff_timestamp": 1171359032,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 405118,
+            "raw_size": 405504,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 409600,
+            "virtual_size": 85654,
+            "raw_size": 86016,
+            "raw_offset": 409600,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 495616,
+            "virtual_size": 1623480,
+            "raw_size": 12288,
+            "raw_offset": 495616,
+            "executable": false,
+            "characteristics": 3221225536
+          }
+        ]
+      }
+    },
+    {
+      "binary_id": "902b4d806404771f",
+      "sha256": "902b4d806404771fd2c0853d7130e64a0d7c6261c06a0e7643da848ec06e2897",
+      "paths": [
+        "Server/PSM_Server/PSMServer_Mgr.exe"
+      ],
+      "pe": {
+        "machine": 332,
+        "bits": 32,
+        "image_base": 4194304,
+        "entry_rva": 286414,
+        "image_size": 3702784,
+        "headers_size": 4096,
+        "coff_timestamp": 1191311278,
+        "dll": false,
+        "sections": [
+          {
+            "name": ".text",
+            "rva": 4096,
+            "virtual_size": 612162,
+            "raw_size": 614400,
+            "raw_offset": 4096,
+            "executable": true,
+            "characteristics": 1610612768
+          },
+          {
+            "name": ".rdata",
+            "rva": 618496,
+            "virtual_size": 145828,
+            "raw_size": 147456,
+            "raw_offset": 618496,
+            "executable": false,
+            "characteristics": 1073741888
+          },
+          {
+            "name": ".data",
+            "rva": 765952,
+            "virtual_size": 2877080,
+            "raw_size": 16384,
+            "raw_offset": 765952,
+            "executable": false,
+            "characteristics": 3221225536
+          },
+          {
+            "name": ".rsrc",
+            "rva": 3645440,
+            "virtual_size": 53832,
+            "raw_size": 57344,
+            "raw_offset": 782336,
+            "executable": false,
+            "characteristics": 1073741888
+          }
+        ]
+      }
+    }
+  ]
+}

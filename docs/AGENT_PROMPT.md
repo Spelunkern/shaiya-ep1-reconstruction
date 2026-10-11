@@ -1,12 +1,15 @@
 # Prompt para copiar al agente de IA
 
-Sustituir `ID_DEL_BLOQUE` y `USUARIO_GITHUB` por la reserva aceptada. Ejecutar este
+Generar el prompt con `python3 tools/reverse.py prompt ID_DEL_BLOQUE --owner USUARIO_GITHUB`.
+Ese comando resuelve también `ID_DEL_BINARIO`. Si se copia manualmente, sustituir
+los tres valores por la reserva aceptada y el binario de `show`. Ejecutar este
 prompt dentro de la raíz del repositorio, con originales y herramientas instalados.
 
 ```text
 Trabaja en la reconstrucción del bloque ID_DEL_BLOQUE para USUARIO_GITHUB.
 
 1. Lee AGENTS.md, README.md, CONTRIBUTING.md y docs/PROTOCOL.md.
+   Lee también docs/AGENT_GUIDE.md y docs/FIRST_BLOCK.md como referencia.
    Confirma que la reserva de claims/ pertenece a USUARIO_GITHUB, no está vencida
    y ya fue aceptada en la rama principal del repositorio comunitario.
 2. Ejecuta show para el bloque, verify y audit --originals. Identifica el binario

@@ -1,0 +1,27 @@
+{
+  "environment": "Linux x86_64; Clang 23.1.1, i686-pc-windows-msvc COFF, -O0/-O2; Unicorn 2.1.4 x86-32",
+  "reasoning": "4068 differential comparisons of reconstructed machine code with actual original x86 instructions. Return, cdecl stack, callee-saved registers and exact input reads checked. Synthetic epilogue tests preserve original arithmetic wrapping. Ready for independent review; no review record is asserted.",
+  "build": {
+    "result": "pass",
+    "command": "work/example-venv/bin/python contributions/86424e839ec26fb4-fn-00001d80/tests/differential.py",
+    "log": "logs/build.log"
+  },
+  "comparison": {
+    "result": "pass",
+    "command": "work/example-venv/bin/python contributions/86424e839ec26fb4-fn-00001d80/tests/differential.py",
+    "log": "logs/comparison.log",
+    "original_sha256": "86424e839ec26fb454cd343c451200e290cf528a88b53c2e77e7407573dac844",
+    "method": "Emulate original bytes and reconstructed Windows x86 COFF in Unicorn; compare observable ABI/memory behavior",
+    "cases": [
+      "3042 scans: aligned, unaligned, guard-page placement, embedded terminators, surrogate units and 500 randomized inputs at two optimization levels",
+      "4 invalid input comparisons: null and no terminator",
+      "1022 synthetic arithmetic-tail comparisons: signed/unsigned/wrap boundaries and 500 randomized deltas per build"
+    ]
+  },
+  "limitations": [
+    "Function CPU emulation only; CONFIG.exe not reconstructed or run on Windows",
+    "Compiler and linker identity not recovered; source does not match original machine bytes",
+    "Very large strings simulated at arithmetic tail only",
+    "No MMIO, concurrent modification or alignment-check exception guarantees"
+  ]
+}

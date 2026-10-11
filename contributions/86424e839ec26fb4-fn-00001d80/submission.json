@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "block_id": "86424e839ec26fb4-fn-00001d80",
+  "baseline_id": "7c4fe1157c5b3af787cf27c11ff47ab2903b30f627ede2e9b4a81fea1b7e057a",
+  "binary_sha256": "86424e839ec26fb454cd343c451200e290cf528a88b53c2e77e7407573dac844",
+  "owner": "Spelunkern",
+  "status": "ready",
+  "source_files": [
+    "src/function.c",
+    "include/function.h"
+  ],
+  "evidence_files": [
+    "analysis.md",
+    "original/listing.txt",
+    "original/decompiled.c",
+    "original/callers.txt",
+    "original/body.hex",
+    "logs/build.log",
+    "logs/comparison.log",
+    "logs/comparison.json",
+    "proof.json"
+  ],
+  "test_files": [
+    "tests/differential.py",
+    "tests/arithmetic_probe.c",
+    "tests/requirements.txt"
+  ],
+  "abi": {
+    "calling_convention": "Windows x86 __cdecl; argument [ESP+4], caller cleans 4 bytes, RET pops return address only",
+    "parameters": "one pointer to readable little-endian 16-bit units ending in zero; unaligned addresses supported by tested x86 builds",
+    "return": "signed 32-bit EAX: SAR32((end_pointer-start_pointer) mod 2^32,1)-1; ordinary strings return number of nonzero units",
+    "side_effects": "reads exactly one 16-bit unit per iteration through zero; input and nonvolatile EBX/ESI/EDI/EBP preserved; volatile registers and EFLAGS not promised"
+  },
+  "dependency_contracts": [],
+  "unknowns": []
+}

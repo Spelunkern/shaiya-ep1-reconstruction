@@ -1,65 +1,98 @@
 # Shaiya EP1 — reconstrucción comunitaria
 
-Repositorio de trabajo para reconstruir desde los binarios del corpus preparado
-el cliente, los servicios, las herramientas y las DLL de Shaiya EP1. Cada aporte
-se vincula a un binario concreto, un bloque y una baseline reproducible de Ghidra.
+[![Validación](https://github.com/Spelunkern/shaiya-ep1-reconstruction/actions/workflows/validate.yml/badge.svg)](https://github.com/Spelunkern/shaiya-ep1-reconstruction/actions/workflows/validate.yml)
 
-El objetivo es obtener fuente mantenible y reconstrucciones verificadas de todos
-los binarios. El inventario inicial contiene **394 archivos, 27 rutas PE y 23
-binarios únicos**, con **1.846.545.691 bytes** de originales. El estado inicial y
-el número real de bloques se describen en [el análisis inicial](docs/INITIAL_ANALYSIS.md).
+Reconstrucción del cliente, servicios, herramientas y DLL de Shaiya EP1 a partir
+de sus binarios originales, mediante Ghidra y aportes de agentes de IA por bloques.
+La meta es obtener fuente mantenible y builds verificados de todos los binarios.
 
-La recuperación literal del fuente original —comentarios, nombres eliminados,
-macros o estructura de proyectos— no se puede garantizar desde un ejecutable.
-Se mide por separado cobertura del binario, fuente reconstruida, pruebas de
-comportamiento e integración; la identidad byte a byte es una meta adicional que
-requiere reproducir compilador, enlazador y opciones originales.
-
-Para contribuir, seguir [CONTRIBUTING.md](CONTRIBUTING.md) y entregar al agente el
-[prompt de trabajo](docs/AGENT_PROMPT.md). Las instrucciones obligatorias para
-agentes están en [AGENTS.md](AGENTS.md).
+**Los binarios están incluidos en el repositorio:** 27 rutas PE, 23 binarios únicos,
+unos 21 MB. Un clone obtiene los ejecutables y DLL necesarios. La distribución
+pública excluye archivos de datos del cliente, bases de datos, configuraciones y
+logs. Ver [distribución](docs/DISTRIBUTION.md).
 
 ```bash
-python3 tools/reverse.py list --kind function --available --limit 20
-python3 tools/reverse.py show ID_DEL_BLOQUE
-python3 tools/reverse.py report
+git clone https://github.com/Spelunkern/shaiya-ep1-reconstruction.git
+cd shaiya-ep1-reconstruction
+python3 tools/reverse.py verify
+python3 tools/reverse.py list --kind function --available --max-instructions 30 --limit 20
 ```
 
-El catálogo fija los rangos de funciones detectadas por Ghidra; conserva rangos
-discontinuos y detecta
-cuerpos compartidos. También incluye datos, regiones ejecutables sin clasificar
-y tareas de integración. Los límites semánticos requieren revisión: los flujos directos no resueltos
-bloquean reservas normales. El número de bloques resulta del análisis, sin fijar
-artificialmente 10.000. Las DLL idénticas en varias carpetas comparten un único
-catálogo, con todas sus rutas registradas.
+## Primer bloque de ejemplo
+
+Ya hay [un aporte real completo](docs/FIRST_BLOCK.md):
+`86424e839ec26fb4-fn-00001d80`, una función de `CONFIG.exe` que mide unidades de
+16 bits hasta cero. Incluye fuente C, contrato ABI, ensamblador original, evidencia
+del caller y **4.068 comparaciones** del código recompilado para Windows x86 contra
+las instrucciones originales emuladas. Está listo para revisión independiente.
+
+Para repetirlo, seguir [FIRST_BLOCK.md](docs/FIRST_BLOCK.md). No hace falta instalar
+Ghidra para correr esas pruebas; se necesitan Python, Clang y Unicorn. Ghidra sí
+forma parte del flujo para reconstruir otros bloques.
+
+## Cómo contribuir
+
+Seguir [CONTRIBUTING.md](CONTRIBUTING.md), leer la
+[guía para agentes](docs/AGENT_GUIDE.md) y usar el
+[prompt de trabajo](docs/AGENT_PROMPT.md). `AGENTS.md` contiene las reglas del repo.
+
+```bash
+python3 tools/reverse.py show ID_DEL_BLOQUE
+python3 tools/reverse.py claim ID_DEL_BLOQUE --owner USUARIO_GITHUB
+# Enviar la reserva por PR y esperar su aceptación antes de reconstruir.
+```
+
+Cada entrega contiene fuente, análisis por direcciones, contrato ABI, pruebas y
+logs propios. La revisión vincula sus resultados al contenido exacto del aporte.
+No se acepta pseudocódigo sin reconstrucción ni se inventan dependencias para
+hacer compilar un bloque.
+
+```mermaid
+flowchart LR
+  A[Binarios con SHA-256] --> B[Baseline Ghidra]
+  B --> C[Catálogo de bloques]
+  C --> D[Reserva aceptada]
+  D --> E[Fuente y pruebas]
+  E --> F[Revisión independiente]
+  F --> G[Integración por binario]
+```
+
+## Catálogo y estado
+
+La baseline contiene **80.220 unidades**, de las cuales **45.259 son funciones
+detectadas**. También asigna datos, recursos, regiones ejecutables sin clasificar
+y trabajo de integración. El número resulta del análisis real; no se fija
+artificialmente en 10.000. Las DLL idénticas comparten catálogo y conservan sus rutas.
+
+Los rangos de cada bloque son precisos sobre un binario con hash determinado;
+sus límites semánticos requieren revisión. Hay 94 funciones con flujo directo
+pendiente que se excluyen de reservas normales. El detalle está en
+[el análisis inicial](docs/INITIAL_ANALYSIS.md).
 
 | Ruta | Contenido |
 |---|---|
-| `Client/`, `Server/` | Originales intactos, presentes en la copia local |
-| `manifests/` | Identidad SHA-256 de todo el corpus y herramientas fijadas |
-| `analysis/baseline/` | Funciones, rangos y referencias exportados por Ghidra |
-| `blocks/` | Catálogo congelado y su identidad |
-| `claims/` | Reservas aceptadas en la rama principal |
-| `contributions/` | Fuente, contratos, análisis, pruebas y evidencia por bloque |
-| `reviews/` | Evaluaciones vinculadas al contenido exacto del aporte |
-| `reconstruction/` | Integración de aportes aceptados en proyectos compilables |
-| `work/` | Proyectos locales de Ghidra, herramientas y logs; fuera de Git |
-
-Los originales se distribuyen como un paquete separado, verificable y asociado
-al repositorio. Esto incluye la carpeta completa, sin introducir 1,8 GB de bases
-de datos y recursos en cada revisión de Git. `python3 tools/reverse.py bundle`
-crea `dist/shaiya-ep1-originals.tar` y su checksum; consultar
-[distribución](docs/DISTRIBUTION.md). El repositorio local todavía no tiene remoto.
+| `Client/`, `Server/` | Ejecutables y DLL originales publicados, sin data externa |
+| `manifests/public-binaries.json` | Alcance y hashes de los binarios distribuidos |
+| `manifests/originals.json` | Inventario histórico del corpus local completo; no obliga a descargar data |
+| `analysis/baseline/` | Funciones, rangos y referencias de Ghidra |
+| `blocks/` | Catálogo congelado y baseline |
+| `claims/` | Reservas aceptadas |
+| `contributions/` | Entregas por bloque, incluido el primer ejemplo |
+| `reviews/` | Evaluaciones independientes vinculadas a cada entrega |
+| `reconstruction/` | Futura integración en proyectos compilables por binario |
+| `work/` | Herramientas, proyectos Ghidra y resultados locales, fuera de Git |
 
 ```bash
 python3 -m unittest discover -s tests -v
-python3 tools/reverse.py audit
-python3 tools/reverse.py validate
-# Con los originales instalados:
-python3 tools/reverse.py verify
+python3 tools/check_distribution.py
 python3 tools/reverse.py audit --originals
+python3 tools/reverse.py validate
+python3 tools/reverse.py report
 ```
 
-La validación automática comprueba identidad, cobertura y coherencia de las
-entregas. La aceptación técnica exige revisar ensamblador, ABI, compilación y
-comparaciones contra el original, como establece [el protocolo](docs/PROTOCOL.md).
+El estado oficial se mide separando entregas, revisión, pruebas e integración.
+El ejemplo tiene pruebas completadas y estado `ready`; todavía no hay un binario
+completo reconstruido ni una evaluación independiente registrada. Recuperar
+literalmente comentarios, macros y nombres eliminados del fuente original no se
+puede garantizar desde un ejecutable. La identidad byte a byte del build exige
+además reproducir herramientas, layout y opciones originales.

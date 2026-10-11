@@ -1,0 +1,17 @@
+clang version 23.1.1
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+/usr/bin/clang --target=i686-pc-windows-msvc -std=c11 -ffreestanding -fno-stack-protector -Wall -Wextra -Werror -O0 -c <repo>/contributions/86424e839ec26fb4-fn-00001d80/src/function.c -o <repo>/work/first-block-test/function-O0.obj
+
+
+/usr/bin/clang --target=i686-pc-windows-msvc -std=c11 -ffreestanding -fno-stack-protector -Wall -Wextra -Werror -O0 -c <repo>/contributions/86424e839ec26fb4-fn-00001d80/tests/arithmetic_probe.c -o <repo>/work/first-block-test/arithmetic-O0.obj
+
+
+/usr/bin/clang --target=i686-pc-windows-msvc -std=c11 -ffreestanding -fno-stack-protector -Wall -Wextra -Werror -O2 -c <repo>/contributions/86424e839ec26fb4-fn-00001d80/src/function.c -o <repo>/work/first-block-test/function-O2.obj
+
+
+/usr/bin/clang --target=i686-pc-windows-msvc -std=c11 -ffreestanding -fno-stack-protector -Wall -Wextra -Werror -O2 -c <repo>/contributions/86424e839ec26fb4-fn-00001d80/tests/arithmetic_probe.c -o <repo>/work/first-block-test/arithmetic-O2.obj
+
+
+PASS Windows x86 COFF builds, no external relocations

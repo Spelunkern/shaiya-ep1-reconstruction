@@ -3,3 +3,5 @@
 *.jsonl text eol=lf
 *.py text eol=lf
 *.java text eol=lf
+Client/** binary
+Server/** binary

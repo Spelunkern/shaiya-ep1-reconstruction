@@ -1,41 +1,56 @@
-# Originales y publicación
+# Distribución pública de binarios
 
-La copia local conserva `Client/` y `Server/` en sus ubicaciones originales.
-Git versiona la infraestructura, los hashes, la baseline y los aportes. Esas
-carpetas están ignoradas para distribuirlas una vez por corpus como un artefacto
-asociado a la versión del repositorio, sin reinsertarlas en cada clone o commit.
-
-El inventario lista **cada archivo**, su tamaño y SHA-256, incluso datos del juego,
-configuraciones, logs y bases de datos. Los PE se reconocen por su cabecera,
-incluyendo `GameGuard.des`, y las copias idénticas comparten `binary_id`.
-El SHA-256 completo es la autoridad; el ID corto se comprueba contra colisiones.
-
-## Crear el paquete de la carpeta completa
+Los 27 archivos PE del corpus —23 binarios únicos— están versionados directamente
+en `Client/` y `Server/`, con sus rutas originales. No requieren Git LFS, extracción
+de la data del juego ni descarga de un paquete de varios gigabytes. El total de
+binarios es **20.910.273 bytes**.
 
 ```bash
+git clone https://github.com/Spelunkern/shaiya-ep1-reconstruction.git
+cd shaiya-ep1-reconstruction
 python3 tools/reverse.py verify
+```
+
+`verify` comprueba por defecto todos los binarios publicados, con tamaño y SHA-256.
+`manifests/public-binaries.json` lista exactamente lo que se distribuye.
+`GameGuard.des` está incluido porque es un PE, aunque no use extensión `.exe`.
+Las DLL idénticas comparten `binary_id`; el SHA-256 completo es la autoridad.
+
+## Descarga de solo los binarios
+
+La [versión v0.1.0](https://github.com/Spelunkern/shaiya-ep1-reconstruction/releases/tag/v0.1.0)
+incluye `shaiya-ep1-binaries.zip`, `binaries-bundle.json` y `SHA256SUMS`.
+El ZIP contiene únicamente esos PE y su manifiesto público. Puede extraerse en
+la raíz de una copia del repositorio para restaurar los originales.
+
+Para regenerar el paquete desde un clon verificado:
+
+```bash
 python3 tools/reverse.py bundle
 ```
 
-Se genera `dist/shaiya-ep1-originals.tar` y `dist/originals-bundle.json` con tamaño
-y SHA-256. El paquete contiene exactamente los originales inventariados y el
-manifiesto. No contiene Git, proyectos Ghidra ni herramientas descargadas.
-El comando no publica ni sube archivos. Conservar los datos originales intactos.
+El resultado queda en `dist/`. El comando usa una lista explícita de archivos PE;
+no incluye otros archivos presentes localmente dentro de `Client/` o `Server/`.
+Antes de extraer una descarga, verificar su checksum con `sha256sum -c SHA256SUMS`.
+Después, `verify` contrasta los archivos contra el inventario del repositorio.
 
-Al publicar el repositorio, el mantenedor debe adjuntar ese artefacto y su checksum
-a la versión correspondiente y añadir el enlace de descarga aquí. **Todavía no
-hay URL de descarga ni remoto configurado.** El corpus incluye configuraciones,
-logs y bases de datos: revisar su contenido antes de elegir una distribución pública.
+## Lo que permanece local
 
-## Instalar como contribuidor
+Los archivos de data del cliente (`data.saf`, `data.sah`), mapas externos, bases
+de datos, configuraciones y logs del corpus preparado no se publican. Las carpetas
+originales siguen intactas en la estación del mantenedor, pero Git solo contiene
+las rutas PE autorizadas. CI ejecuta `tools/check_distribution.py` para impedir
+que se añadan otros originales bajo esas carpetas.
 
-Obtener el paquete y el checksum del mismo mantenedor y versión del repositorio.
-Comprobar el SHA-256 del tar antes de extraerlo; extraer únicamente un paquete de
-procedencia conocida dentro de una copia del repo. Luego ejecutar `verify` y
-`audit --originals`. El manifiesto del repositorio sigue siendo la referencia,
-no una sustitución enviada junto a un paquete distinto.
+`manifests/originals.json` conserva hashes y rutas del inventario histórico de
+394 archivos porque participa de la baseline congelada. No contiene los archivos
+ni sus contenidos. Para verificar aquel corpus completo, disponible únicamente
+en la copia local del mantenedor:
 
-La verificación completa exige que coincida el conjunto de archivos, tamaños y
-hashes. `verify --binaries-only` sirve para análisis estático parcial y **no**
-acredita disponer de todo el corpus. Los ejecutables del corpus son x86 Windows;
-no se ejecutan durante inventario, particionado, CI ni análisis estático.
+```bash
+python3 tools/reverse.py verify --full-corpus
+```
+
+Ese comando no forma parte de la preparación del contribuidor. La distribución
+actual permite análisis estático y pruebas aisladas por bloque. Las pruebas del
+juego o servidor completos requerirán datos de prueba en una fase de integración.

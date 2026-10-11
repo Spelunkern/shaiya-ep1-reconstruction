@@ -1,10 +1,23 @@
-# Contribuir un bloque
+# Contribuir un bloque con un agente de IA
 
-## 1. Preparar una copia reproducible
+El proyecto oficial es [Spelunkern/shaiya-ep1-reconstruction](https://github.com/Spelunkern/shaiya-ep1-reconstruction).
+Los binarios ya están incluidos. El [primer bloque](docs/FIRST_BLOCK.md) muestra
+una entrega real y cómo repetir sus pruebas.
 
-Clonar el repositorio y obtener el paquete de originales de la misma versión.
-Extraerlo en la raíz para obtener `Client/` y `Server/`. Seguir
-`docs/DISTRIBUTION.md` y `docs/TOOLCHAIN.md`.
+## 1. Preparar el fork
+
+Crear un fork desde GitHub, clonarlo y agregar el upstream. Con GitHub CLI:
+
+```bash
+gh repo fork Spelunkern/shaiya-ep1-reconstruction --clone
+cd shaiya-ep1-reconstruction
+git remote -v
+# Si gh no creó upstream:
+git remote add upstream https://github.com/Spelunkern/shaiya-ep1-reconstruction.git
+```
+
+No agregar un upstream duplicado: comprobar primero `git remote -v`.
+Desde la raíz del fork:
 
 ```bash
 python3 tools/reverse.py verify
@@ -12,55 +25,68 @@ python3 tools/reverse.py audit --originals
 python3 tools/reverse.py list --kind function --available --max-instructions 30 --limit 20
 ```
 
-Empezar con una función pequeña, pocas dependencias y sin cuerpo compartido ni
-flujos directos pendientes de resolver. `--available` excluye esos impedimentos. El
-catálogo muestra cantidad de instrucciones, sin estimar dificultad semántica.
-Leer el bloque completo con `show`: una función corta puede ser un thunk o
-requerir conocimiento de un objeto grande.
+Revisar `show ID_DEL_BLOQUE`. Empezar con pocas instrucciones y dependencias.
+`--available` excluye reservas, entregas existentes y flujos directos pendientes;
+una función corta todavía puede ser un thunk o requerir contratos complejos.
+No elegir el bloque de ejemplo: ya tiene una entrega.
 
-## 2. Reservar antes de invertir trabajo
+## 2. Reservar centralmente
 
-Actualizar la rama principal y crear una rama para la reserva.
+Sustituir los valores en mayúsculas por el ID del catálogo y el usuario de GitHub:
 
 ```bash
+git fetch upstream
+git switch -c claim/ID_DEL_BLOQUE upstream/main
 python3 tools/reverse.py claim ID_DEL_BLOQUE --owner USUARIO_GITHUB
+git add claims/ID_DEL_BLOQUE.json
+git commit -m "Reserve ID_DEL_BLOQUE"
+git push -u origin HEAD
+gh pr create --repo Spelunkern/shaiya-ep1-reconstruction --base main \
+  --title "Reserve ID_DEL_BLOQUE" --body "Reservation for USUARIO_GITHUB"
 ```
 
-Enviar un PR que incluya únicamente `claims/<block_id>.json`. Esperar su merge
-por un mantenedor y actualizar la copia local antes de comenzar. La creación
-local usa exclusión de archivo, pero **no ofrece exclusión entre clones**; el
-merge de la reserva en la rama principal resuelve la concurrencia. Una issue
-puede servir para coordinar; no sustituye la reserva aceptada. Las reservas
-vencen en siete días; su renovación o reasignación requiere un cambio revisado.
+Esperar el merge del PR de reserva en upstream. La creación del archivo local es
+exclusiva, pero no es un bloqueo entre clones; la rama principal es la autoridad.
+Una issue puede coordinar la tarea, pero no sustituye la reserva aceptada.
+Las reservas vencen en siete días; renovación o reasignación requiere revisión.
+Los aportes entregados no vuelven a ser tareas libres al vencer la reserva.
 
-## 3. Crear el aporte y reunir evidencia
+## 3. Iniciar el trabajo reservado
+
+Después de que la reserva esté aceptada:
 
 ```bash
+git fetch upstream
+git switch -c reverse/ID_DEL_BLOQUE upstream/main
 python3 tools/reverse.py start ID_DEL_BLOQUE --owner USUARIO_GITHUB
+mkdir -p work
+python3 tools/reverse.py prompt ID_DEL_BLOQUE --owner USUARIO_GITHUB > work/task.md
+```
+
+Abrir el agente en la raíz del fork y darle el contenido de `work/task.md`.
+La [guía para agentes](docs/AGENT_GUIDE.md) fija el procedimiento completo.
+El prompt incluye el ID del binario, su ruta, SHA-256 y baseline.
+
+Instalar el Ghidra/JDK fijados según `docs/TOOLCHAIN.md`; luego:
+
+```bash
 python3 tools/reverse.py analyze --binary ID_DEL_BINARIO
 python3 tools/reverse.py export ID_DEL_BLOQUE
 ```
 
-`analyze` usa los originales verificados y la versión fijada de Ghidra. En un
-clon nuevo genera el proyecto local y exige que el export coincida con la
-baseline publicada. Si difiere, conservar logs y consultar al mantenedor;
-no sobrescribir el catálogo. `export` produce listado de instrucciones y
-pseudocódigo en `work/evidence/<block_id>/`, usando el proyecto en modo de lectura.
-Para bloques de datos o clasificación, inspeccionar los rangos en Ghidra.
+En un clon nuevo, `analyze` genera el proyecto y exige que el export reproduzca
+la baseline. Si difiere, conservar logs y presentar el diagnóstico; no cambiar
+el catálogo. Para datos o clasificación, inspeccionar los rangos directamente.
 
-Entregar al agente el contenido de `docs/AGENT_PROMPT.md` con el ID y el usuario.
-El agente debe reconstruir y probar ese alcance, documentando dudas y contratos.
-Copiar la evidencia pertinente al aporte y declararla en `submission.json`.
+## 4. Completar la entrega
 
-## 4. Implementar y probar
-
-El aporte vive en `contributions/<block_id>/`:
+Toda la implementación del bloque vive en `contributions/<block_id>/`:
 
 ```text
 submission.json
 analysis.md
-src/function.cpp
-include/contract.h
+src/...
+include/...
 original/listing.txt
 original/decompiled.c
 proof.json
@@ -69,32 +95,35 @@ logs/comparison.log
 tests/...
 ```
 
-`decompiled.c` es evidencia, no el archivo de producción. Declarar solo los
-archivos existentes en `source_files`, `evidence_files` y `test_files`. Describir
-ABI, efectos de memoria y contratos de todas las dependencias del catálogo.
-Registrar además las llamadas indirectas y referencias no resueltas; que Ghidra
-no encuentre una arista no demuestra que no exista.
+Registrar análisis por dirección, ABI, tipos y offsets, efectos y contratos de
+todas las dependencias del catálogo. Investigar llamadas indirectas, callbacks y
+referencias pendientes. `decompiled.c` es evidencia, no fuente de producción.
 
-No hay un compilador C++ original identificado todavía. Una contribución debe
-registrar el compilador usado y sus límites; la aceptación de ABI exige un
-entorno Windows x86 o una comparación equivalente documentada. Las pruebas
-portables de lógica pueden ejecutarse por separado. No agregar stubs a producción
-para obtener una compilación aparentemente completa.
+Los tests deben contrastar el comportamiento con evidencia del original, detectar
+desviaciones e incluir condiciones límite. Conservar comandos reales, versiones,
+logs y límites de cada comparación. La compilación de lógica en Linux de 64 bits
+no valida el ABI Windows x86. No añadir stubs de producción para lograr enlace.
 
-## 5. Enviar para revisión
+Declarar en `source_files`, `test_files` y `evidence_files` todos los archivos
+necesarios para reconstruir y repetir la evaluación. Las modificaciones de tipos
+compartidos van en propuestas coordinadas con sus consumidores.
 
-Mantener `status: "draft"` mientras queden incógnitas. Cambiar a `"ready"` solo
-cuando haya fuente, evidencia, pruebas, contrato ABI y preguntas resueltas.
+## 5. Proponer el bloque
+
+Mantener `draft` si faltan contratos o verificaciones. Usar `ready` cuando se
+cumpla `docs/PROTOCOL.md` y `unknowns` esté vacío. `ready` no equivale a aprobación.
 
 ```bash
 python3 tools/reverse.py validate --block ID_DEL_BLOQUE
+# Ejecutar también el comando de pruebas real de tu bloque.
+git add contributions/ID_DEL_BLOQUE
+git commit -m "Reconstruct ID_DEL_BLOQUE"
+git push -u origin HEAD
+gh pr create --repo Spelunkern/shaiya-ep1-reconstruction --base main
 ```
 
-Enviar un PR con el bloque, la baseline y los resultados. Un PR puede incluir
-varios bloques solo si cada uno tiene reserva y entrega separadas. No modificar
-otros bloques para ajustar hipótesis. Los cambios de contratos compartidos se
-coordinan antes y deben identificar consumidores.
-
-El revisor usa `docs/PROTOCOL.md`, reproduce las pruebas y registra la evaluación.
-Un aporte editado después de una evaluación invalida su digest. El mantenimiento
-de la rama principal decide la aceptación; los campos JSON no autentican personas.
+Completar la plantilla del PR con comportamiento, baseline, ABI, pruebas y límites.
+Cada bloque necesita su propia reserva y entrega, incluso si un PR coordina varios.
+No incluir archivos generados en `work/`, cambios a los originales ni evaluaciones
+propias. El revisor independiente reproduce los resultados; el mantenedor acepta
+la evaluación en la rama principal. Editar el aporte invalida una revisión previa.

@@ -1,0 +1,41 @@
+PASS 3042 scan + 4 fault + 1022 arithmetic comparisons against original x86 instructions
+{
+  "block_id": "86424e839ec26fb4-fn-00001d80",
+  "original_sha256": "86424e839ec26fb454cd343c451200e290cf528a88b53c2e77e7407573dac844",
+  "body_sha256": "ab4bab194aae7751eae686a11b9b3777dd65c29138d9a7d064cc8a88cb137299",
+  "target": "i686-pc-windows-msvc",
+  "unicorn": "2.1.4",
+  "host": "Linux-7.2.9-arch1-1-x86_64-with-glibc2.44",
+  "scan_comparisons": 3042,
+  "fault_comparisons": 4,
+  "arithmetic_comparisons": 1022,
+  "builds": [
+    {
+      "optimization": "-O0",
+      "source_text_sha256": "cced547b38293530e6c9187e3098bfeaa9e1364c6c789eab20c494ca7a1889a6",
+      "code_bytes": 160,
+      "symbol_offset": 0
+    },
+    {
+      "optimization": "-O2",
+      "source_text_sha256": "94078ebe3b674e985f0da295ccaf773c6b2d3f7b20fae77fad033ac0e72bd728",
+      "code_bytes": 39,
+      "symbol_offset": 0
+    }
+  ],
+  "assertions": [
+    "EAX return",
+    "cdecl ESP and argument preservation",
+    "EBX/ESI/EDI/EBP preservation",
+    "input unchanged",
+    "exact input read addresses and widths",
+    "null and unterminated faults",
+    "synthetic arithmetic overflow boundaries"
+  ],
+  "limitations": [
+    "CPU emulation, not whole CONFIG.exe on Windows",
+    "No compiler/linker identity claim",
+    "Huge strings modeled only through the arithmetic tail, not allocated or fully scanned",
+    "No MMIO, concurrent mutation, or alignment-check exception comparison"
+  ]
+}

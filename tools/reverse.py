@@ -9,7 +9,7 @@ from pathlib import Path
 import struct
 import subprocess
 import sys
-import tarfile
+import zipfile
 
 if __package__:
     from . import partition
@@ -114,7 +114,7 @@ def cmd_inventory(args):
           f'{sum("pe" in x for x in files)} PE paths, {len(binaries)} unique binaries')
 
 
-def verify_originals(binary_only=False):
+def verify_originals(binary_only=True):
     manifest = inventory()
     files = [f for f in manifest['files'] if not binary_only or 'pe' in f]
     for item in files:
@@ -130,7 +130,7 @@ def verify_originals(binary_only=False):
 
 
 def cmd_verify(args):
-    m = verify_originals(args.binaries_only)
+    m = verify_originals(not args.full_corpus)
     print(f'PASS originals ({len(m["binaries"])} unique binaries)')
 
 
@@ -541,18 +541,31 @@ def cmd_report(args):
                          binaries=[{k: v for k, v in b.items() if k != 'shared_body_ranges'} | {'shared_body_ranges':len(b['shared_body_ranges'])} for b in baseline['binaries']]), indent=2))
 
 
+def cmd_prompt(args):
+    block = choose_block(args.block)
+    binary = choose_binary(block['binary_id'])
+    template = (ROOT / 'docs/AGENT_PROMPT.md').read_text()
+    content = template.split('```text\n', 1)[1].split('```', 1)[0]
+    for key, value in [('ID_DEL_BLOQUE', block['id']), ('USUARIO_GITHUB', args.owner), ('ID_DEL_BINARIO', block['binary_id'])]:
+        content = content.replace(key, value)
+    print(f"Binario: {binary['paths'][0]}\nSHA-256: {binary['sha256']}\nBaseline: {block['baseline_id']}\n")
+    print(content)
+
+
 def cmd_bundle(args):
-    verify_originals()
+    verify_originals(True)
     dist = ROOT / 'dist'
     dist.mkdir(exist_ok=True)
-    output = dist / 'shaiya-ep1-originals.tar'
+    output = dist / 'shaiya-ep1-binaries.zip'
     if output.exists():
-        raise ValueError('Bundle already exists; move it aside to rebuild')
-    with tarfile.open(output, 'w') as archive:
+        raise ValueError('Binary bundle already exists; move it aside to rebuild')
+    with zipfile.ZipFile(output, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for item in inventory()['files']:
-            archive.add(ROOT / item['path'], arcname=item['path'], recursive=False)
-        archive.add(ROOT / 'manifests/originals.json', arcname='manifests/originals.json')
-    write(dist / 'originals-bundle.json', dict(file=output.name, size=output.stat().st_size, sha256=sha(output)))
+            if 'pe' in item:
+                archive.write(ROOT / item['path'], arcname=item['path'])
+        archive.write(ROOT / 'manifests/public-binaries.json', arcname='manifests/public-binaries.json')
+    write(dist / 'binaries-bundle.json', dict(file=output.name, size=output.stat().st_size, sha256=sha(output)))
+    (dist / 'SHA256SUMS').write_text(f"{sha(output)}  {output.name}\n")
     print(output)
 
 
@@ -562,13 +575,14 @@ def main():
     for name, func in [('inventory',cmd_inventory), ('plan',cmd_plan), ('audit',cmd_audit), ('report',cmd_report), ('bundle',cmd_bundle)]:
         commands.add_parser(name).set_defaults(func=func)
     commands.choices['audit'].add_argument('--originals', action='store_true')
-    p = commands.add_parser('verify'); p.add_argument('--binaries-only', action='store_true'); p.set_defaults(func=cmd_verify)
+    p = commands.add_parser('verify'); scope=p.add_mutually_exclusive_group(); scope.add_argument('--binaries-only', action='store_true'); scope.add_argument('--full-corpus', action='store_true'); p.set_defaults(func=cmd_verify)
     p = commands.add_parser('analyze'); p.add_argument('--binary'); p.add_argument('--timeout',type=int,default=1800); p.set_defaults(func=cmd_analyze)
     for name, func in [('export',cmd_export)]:
         p = commands.add_parser(name); p.add_argument('block'); p.set_defaults(func=func)
     for name in ('analyze','export'):
         p = commands.choices[name]; p.add_argument('--ghidra'); p.add_argument('--jdk')
     p = commands.add_parser('list'); p.add_argument('--binary'); p.add_argument('--kind',choices=['function','data','unclassified','integration']); p.add_argument('--available',action='store_true'); p.add_argument('--limit',type=int,default=20); p.add_argument('--max-instructions',type=int); p.add_argument('--no-dependencies',action='store_true'); p.set_defaults(func=cmd_list)
+    p = commands.add_parser('prompt'); p.add_argument('block'); p.add_argument('--owner',required=True); p.set_defaults(func=cmd_prompt)
     p = commands.add_parser('show'); p.add_argument('block'); p.set_defaults(func=cmd_show)
     for name,func in [('claim',cmd_claim),('start',cmd_start)]:
         p = commands.add_parser(name); p.add_argument('block'); p.add_argument('--owner',required=True); p.set_defaults(func=func)

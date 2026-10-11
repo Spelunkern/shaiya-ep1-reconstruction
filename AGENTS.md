@@ -1,7 +1,7 @@
 # Instrucciones para agentes en este repositorio
 
 Leer `README.md`, `CONTRIBUTING.md`, `docs/PROTOCOL.md` y
-`docs/AGENT_PROMPT.md` antes de trabajar. El idioma de documentación es español;
+`docs/AGENT_PROMPT.md` y `docs/AGENT_GUIDE.md` antes de trabajar. El idioma de documentación es español;
 los identificadores y formatos de herramientas son estables y usan inglés.
 
 ## Alcance y evidencia
@@ -47,3 +47,11 @@ Python 3.12+ sin dependencias para la CLI. Ghidra 12.1.4 y JDK 21 para el análi
 Los proyectos Ghidra se guardan en `work/ghidra/` y no se sobreescriben.
 Cambiar el planificador altera la identidad de la baseline: requiere una migración
 explícita; una corrección de documentos no altera el catálogo.
+
+## Publicación del corpus
+
+Git incluye exclusivamente los PE enumerados en `manifests/public-binaries.json`.
+No añadir data del cliente, bases de datos, configuraciones ni logs originales.
+`verify` valida los binarios publicados; `--full-corpus` es solo para la copia
+privada completa. `bundle` genera únicamente el ZIP público de binarios.
+El primer ejemplo está en `docs/FIRST_BLOCK.md` y sus pruebas se ejecutan en CI.

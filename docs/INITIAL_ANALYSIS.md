@@ -103,7 +103,9 @@ localmente en `work/logs/`. Un autoanálisis terminado puede tener errores de ti
 recursos o límites que deben revisarse. Los resultados son un mapa inicial de
 trabajo; no una certificación de recuperación completa.
 
-**Estado de reconstrucción: 0 bloques validados, 0 binarios reconstruidos.**
-La infraestructura y el catálogo están preparados para iniciar contribuciones.
-Faltan elegir el remoto, publicar el paquete original y configurar revisión
-obligatoria de la rama principal antes de abrir el trabajo comunitario.
+**Estado al generar esta baseline: 0 bloques validados, 0 binarios reconstruidos.**
+La publicación posterior incluye únicamente los PE y un primer aporte real en
+`ready`, descrito en [FIRST_BLOCK.md](FIRST_BLOCK.md). Sus pruebas diferenciales
+pasaron; aún requiere revisión independiente. El reporte vivo es
+`python3 tools/reverse.py report`. El inventario de 394 archivos es histórico;
+los contribuidores reciben 27 PE y no necesitan la data del cliente.

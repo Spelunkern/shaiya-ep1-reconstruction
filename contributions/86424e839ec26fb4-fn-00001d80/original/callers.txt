@@ -1,0 +1,13 @@
+  401bd8:	68 04 01 00 00       	push   $0x104
+  401bdd:	68 08 83 40 00       	push   $0x408308
+  401be2:	56                   	push   %esi
+  401be3:	ff 15 08 60 40 00    	call   *0x406008
+  401be9:	68 08 83 40 00       	push   $0x408308
+  401bee:	e8 8d 01 00 00       	call   0x401d80
+  401bf3:	83 c4 04             	add    $0x4,%esp
+  401bf6:	48                   	dec    %eax
+  401bf7:	78 20                	js     0x401c19
+  401bf9:	b9 5c 00 00 00       	mov    $0x5c,%ecx
+  401bfe:	8b ff                	mov    %edi,%edi
+  401c00:	66 39 0c 45 08 83 40 	cmp    %cx,0x408308(,%eax,2)
+  401c07:	00 
