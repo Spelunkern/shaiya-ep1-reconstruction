@@ -1,0 +1,9 @@
+/Client/
+/Server/
+/work/
+/dist/
+/build/
+/.venv/
+__pycache__/
+*.pyc
+/.work/

@@ -1,0 +1,281 @@
+{
+  "baseline_id": "7c4fe1157c5b3af787cf27c11ff47ab2903b30f627ede2e9b4a81fea1b7e057a",
+  "blocks": 80220,
+  "kinds": {
+    "function": 45259,
+    "data": 1495,
+    "unclassified": 33443,
+    "integration": 23
+  },
+  "submissions": {
+    "draft": 0,
+    "ready": 0
+  },
+  "reviews": {
+    "source_reviewed": 0,
+    "block_validated": 0,
+    "integrated": 0
+  },
+  "functions_requiring_boundary_review": 94,
+  "reconstructed_verified_blocks": 0,
+  "measurement": "Counts record accepted evidence, not a proof of complete semantic equivalence. Read review limitations.",
+  "binaries": [
+    {
+      "binary_id": "86424e839ec26fb4",
+      "paths": [
+        "Client/CONFIG.exe"
+      ],
+      "functions": 88,
+      "executable_bytes": 19968,
+      "function_body_bytes_in_executable": 18087,
+      "unclassified_executable_bytes": 1881,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "34c61a5935e328b6",
+      "paths": [
+        "Client/GameGuard.des"
+      ],
+      "functions": 1,
+      "executable_bytes": 434176,
+      "function_body_bytes_in_executable": 487,
+      "unclassified_executable_bytes": 433689,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "05a39841f490dbc2",
+      "paths": [
+        "Client/Updater.exe"
+      ],
+      "functions": 2445,
+      "executable_bytes": 286720,
+      "function_body_bytes_in_executable": 254919,
+      "unclassified_executable_bytes": 31801,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "2281679d7b2ec3a0",
+      "paths": [
+        "Client/game.exe"
+      ],
+      "functions": 7116,
+      "executable_bytes": 1970176,
+      "function_body_bytes_in_executable": 1608707,
+      "unclassified_executable_bytes": 361469,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "334aa12f7dee453d",
+      "paths": [
+        "Client/ijl15.dll"
+      ],
+      "functions": 406,
+      "executable_bytes": 319488,
+      "function_body_bytes_in_executable": 224755,
+      "unclassified_executable_bytes": 94733,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "0df0c22bf411ad67",
+      "paths": [
+        "Client/zlib.dll"
+      ],
+      "functions": 154,
+      "executable_bytes": 39424,
+      "function_body_bytes_in_executable": 35685,
+      "unclassified_executable_bytes": 3739,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "7cf99fd59349bd01",
+      "paths": [
+        "Server/PSM_Client/Bin/dbgeng.dll",
+        "Server/PSM_Client/dbgeng.dll",
+        "Server/PSM_Server/dbgeng.dll"
+      ],
+      "functions": 6179,
+      "executable_bytes": 2185728,
+      "function_body_bytes_in_executable": 1746577,
+      "unclassified_executable_bytes": 439151,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "412f6c0ed9363162",
+      "paths": [
+        "Server/PSM_Client/Bin/dbghelp.dll",
+        "Server/PSM_Client/dbghelp.dll",
+        "Server/PSM_Server/dbghelp.dll"
+      ],
+      "functions": 5390,
+      "executable_bytes": 865792,
+      "function_body_bytes_in_executable": 716238,
+      "unclassified_executable_bytes": 149554,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "1152380264a55063",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth.dll"
+      ],
+      "functions": 627,
+      "executable_bytes": 49152,
+      "function_body_bytes_in_executable": 39866,
+      "unclassified_executable_bytes": 9286,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "e64a1a4292bc60d7",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth53.dll"
+      ],
+      "functions": 706,
+      "executable_bytes": 163840,
+      "function_body_bytes_in_executable": 156879,
+      "unclassified_executable_bytes": 6961,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "3ebc4f4affdb09c4",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth54.dll"
+      ],
+      "functions": 560,
+      "executable_bytes": 131072,
+      "function_body_bytes_in_executable": 125172,
+      "unclassified_executable_bytes": 5900,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "f2a46bbd1e7674c4",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth55.dll"
+      ],
+      "functions": 512,
+      "executable_bytes": 118784,
+      "function_body_bytes_in_executable": 111624,
+      "unclassified_executable_bytes": 7160,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "83a46bb09eaf5e6c",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth60.dll"
+      ],
+      "functions": 629,
+      "executable_bytes": 81920,
+      "function_body_bytes_in_executable": 70400,
+      "unclassified_executable_bytes": 11520,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "e96115e565a4db0d",
+      "paths": [
+        "Server/PSM_Client/Bin/ggsrvdll.dll"
+      ],
+      "functions": 174,
+      "executable_bytes": 28672,
+      "function_body_bytes_in_executable": 26848,
+      "unclassified_executable_bytes": 1824,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "ee9ee6c5494dd69f",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_dbAgent.exe"
+      ],
+      "functions": 1571,
+      "executable_bytes": 344064,
+      "function_body_bytes_in_executable": 273783,
+      "unclassified_executable_bytes": 70281,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "a843dcbd1f767954",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_game.exe"
+      ],
+      "functions": 3438,
+      "executable_bytes": 897024,
+      "function_body_bytes_in_executable": 740675,
+      "unclassified_executable_bytes": 156349,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "d19bb3a2dbef2635",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_gameLog.exe"
+      ],
+      "functions": 1247,
+      "executable_bytes": 241664,
+      "function_body_bytes_in_executable": 187805,
+      "unclassified_executable_bytes": 53859,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "2f9a0b2a47209861",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_login.exe"
+      ],
+      "functions": 1327,
+      "executable_bytes": 258048,
+      "function_body_bytes_in_executable": 197881,
+      "unclassified_executable_bytes": 60167,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "31ec1b5cf818c403",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_session.exe"
+      ],
+      "functions": 1314,
+      "executable_bytes": 258048,
+      "function_body_bytes_in_executable": 199489,
+      "unclassified_executable_bytes": 58559,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "de0ee6f1b6542eec",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_userLog.exe"
+      ],
+      "functions": 1226,
+      "executable_bytes": 229376,
+      "function_body_bytes_in_executable": 177340,
+      "unclassified_executable_bytes": 52036,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "ac696575d1c5894f",
+      "paths": [
+        "Server/PSM_Client/PSM_Agent.exe"
+      ],
+      "functions": 2806,
+      "executable_bytes": 409600,
+      "function_body_bytes_in_executable": 321504,
+      "unclassified_executable_bytes": 88096,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "d82a64629ec08995",
+      "paths": [
+        "Server/PSM_Server/PSMServer_Agent.exe"
+      ],
+      "functions": 2804,
+      "executable_bytes": 405504,
+      "function_body_bytes_in_executable": 320968,
+      "unclassified_executable_bytes": 84536,
+      "shared_body_ranges": 0
+    },
+    {
+      "binary_id": "902b4d806404771f",
+      "paths": [
+        "Server/PSM_Server/PSMServer_Mgr.exe"
+      ],
+      "functions": 4539,
+      "executable_bytes": 614400,
+      "function_body_bytes_in_executable": 490196,
+      "unclassified_executable_bytes": 124204,
+      "shared_body_ranges": 0
+    }
+  ]
+}

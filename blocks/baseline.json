@@ -1,0 +1,366 @@
+{
+  "schema": 1,
+  "baseline_id": "7c4fe1157c5b3af787cf27c11ff47ab2903b30f627ede2e9b4a81fea1b7e057a",
+  "inputs": {
+    "inventory": "78466521729dfd0f2cbfd39c33b7604e396c5941f2936b0fa920fb28c1b62030",
+    "exporter": "b61efc661eec1d874a82c59deca755378f619069c7e4efaaa52ccf49e53feb36",
+    "planner": "3d89ad400d9bc76d7d109a73d3558abc9ce03dd4817fef1dd8b35fbc34333319",
+    "toolchain": "8ebe2e59e1dcd90135517c856bd7484696807c11e8c5583f836a4076c70d3445",
+    "chunk_bytes": 65536,
+    "ghidra": "12.1.4",
+    "exports": {
+      "86424e839ec26fb4": {
+        "functions.jsonl": "242dfd56a215d2fa10c8777f1e6d8579f299608d73918bcc3867b55d1feb80c3",
+        "summary.json": "4029cba84f1cdf2ffb7da5224528bdeffaf453f7be405890ba22f2258eb8f338"
+      },
+      "34c61a5935e328b6": {
+        "functions.jsonl": "d797c71a219756f0159e3b5c838ab9735a287dea1cc27989407c75212b7728e2",
+        "summary.json": "a5594511e946cd0899180feb4b8698ae7bff3d81e2309ab51413f1cd29201caa"
+      },
+      "05a39841f490dbc2": {
+        "functions.jsonl": "0a973caf7a3b5dfa782ac84f2c2aaab908a72a133c2e70a3ad21e61f75fb5470",
+        "summary.json": "76d6844f0f3a231d34048ef14ee8004258efd9628816f39d97274aafe90386e0"
+      },
+      "2281679d7b2ec3a0": {
+        "functions.jsonl": "36308e4e4d995b60b515c2fe33561fa29ffb89b6d9384ea47ca0efb937efa56c",
+        "summary.json": "0a5f728c02e99433868fe0dad9078a34bb214880bf13992bcb90625067ad227b"
+      },
+      "334aa12f7dee453d": {
+        "functions.jsonl": "443cf0b526dc0d6b4b4586e0354b7d4ae3309763ee6f2ed5c89b0ceb282dd64f",
+        "summary.json": "a7970e7e2620153ea8d5d3277c659d227d42484edfc107deffa840e5674358e2"
+      },
+      "0df0c22bf411ad67": {
+        "functions.jsonl": "bb6336e2d7f9e583f8e5ee3f45b8bf0421359c605e4fac9979d674c5e5c327e7",
+        "summary.json": "f89f458f3a21c8a0879933bffa634d8684a312d589cbe1d5cc547a7242c92f42"
+      },
+      "7cf99fd59349bd01": {
+        "functions.jsonl": "d2b17742c3ea5fb514ba7e9dfb8eae7ef2e4d501005a0df5c688cacda3bee421",
+        "summary.json": "264e2f11f5a2231396c08e0b5912112647e5474bc891a91cb195c3f79d075881"
+      },
+      "412f6c0ed9363162": {
+        "functions.jsonl": "d8323462782518dafd82d6b60546ae84cb2cb0a24480108731b0c78374fea62f",
+        "summary.json": "6821cc7f6a5245c4c6ba316bd27329577c4bdb3e39d2e947dfd53a14a7ddece6"
+      },
+      "1152380264a55063": {
+        "functions.jsonl": "514a9e3ad7ae1cb9fc26ebb6202a932a3b545b088d9f5f25520a57e5ae18d7d5",
+        "summary.json": "28aab5f043d77e8b57bc37aa5eaa0ec2a0ee522e6b9a2f75fe1d38e926f0cdaf"
+      },
+      "e64a1a4292bc60d7": {
+        "functions.jsonl": "1697f7c146fb9ce5cc8a682285d77505bd41cf7a6dcd057f7efbbeb19de8054c",
+        "summary.json": "a83380f9a99a8c725e3a276ffb0ae7830a7bde3a93ef72ab5b1cba55dbe60047"
+      },
+      "3ebc4f4affdb09c4": {
+        "functions.jsonl": "1b3c8f329475221f23d0d993e9cb9bc62272f9ec4bfa8c08ff4639fee19cd5a0",
+        "summary.json": "ddf672cff691822d5772b45a3740fbbbef3e10c5ee51ed3788d2fff0d203a792"
+      },
+      "f2a46bbd1e7674c4": {
+        "functions.jsonl": "f81a97fbe500e5015e0d69ab4c39853818822de5369e22403364fe6e8f358d2a",
+        "summary.json": "ca46142e18298b1ebe581ba2816b857b28662c2ec9c914ba63671b6744fd1f2b"
+      },
+      "83a46bb09eaf5e6c": {
+        "functions.jsonl": "0b874ea2ebd872cb6f38dfafa7d64603894b7fe7e6c0ac0498c3fb0935a80d3c",
+        "summary.json": "5294cf1ab494ae9e9a8897135cfb199cf9df80fec97146b3c918d1f93447f41e"
+      },
+      "e96115e565a4db0d": {
+        "functions.jsonl": "f1616e40d21746ce8d052d73eb044e4c892b8c0c265c54b89242e5bca50a4082",
+        "summary.json": "c24bfed4b10c79055c447494262657d6ae4dff4f14845b16a606c469f178e21a"
+      },
+      "ee9ee6c5494dd69f": {
+        "functions.jsonl": "4ce7a0f9a4b7255a0b4f6eac3987c73d89e74be78655dd66e9d5883cb6822d5e",
+        "summary.json": "ef326de3434a360d52071711e60195edb473918c18e9c5893127a9f5e7b67624"
+      },
+      "a843dcbd1f767954": {
+        "functions.jsonl": "f245184a5af9ac94aed032390af1b7b050ec91caf766e7c066b31cede8275eeb",
+        "summary.json": "7187e1b107731fc6121947950b580e764a30590f34bc4a8efa40cec1d9f138be"
+      },
+      "d19bb3a2dbef2635": {
+        "functions.jsonl": "abb4c2ced6e517cc1c17c7cb84e008d601efcf83c5582b70eea95230fa56cca7",
+        "summary.json": "d0421605411bc6edcca3b9f39c523adc2c3348a194e42227119bb99358df96e3"
+      },
+      "2f9a0b2a47209861": {
+        "functions.jsonl": "0f0de74fcd62a859adca2d3b38c559f8979401e1fa88f26662218cf06ab2f95d",
+        "summary.json": "73439c99dc1d71e2b9aa480cf0eb022efedf9c2b235d48d07cfc2b76038016d2"
+      },
+      "31ec1b5cf818c403": {
+        "functions.jsonl": "eb2ce29c8a4ff79d7f2b0f9076db1fdc19a1a2eae92cd63502278128af886390",
+        "summary.json": "3bc7ce6de701599b74389dd04f5f2fa972903c8009c89c9f21eadcedbc5a51b6"
+      },
+      "de0ee6f1b6542eec": {
+        "functions.jsonl": "7e4b388662917b81fc188982aca7246f427821a0967e034e2105612683a5caa7",
+        "summary.json": "3c07dd33bf2d5b0ba659b2e405509c24c19434f1b73787b1d726c8147cb94f51"
+      },
+      "ac696575d1c5894f": {
+        "functions.jsonl": "8e6c1a91be6c4d648294a618af76dc08401880a0a0a515b42dd7afb6e73f3e3b",
+        "summary.json": "fb4837dca6f63c8a16216402182828697b4e2f1c06a979197b50a118d7f753bb"
+      },
+      "d82a64629ec08995": {
+        "functions.jsonl": "9114f24bb815caf81804333745329c2318ad10abf85c094a083ecbee98edb31e",
+        "summary.json": "ff48e4f865b6f807773f4d0942c6cb4c1182d367c9a0ebd2308b4b6676b7e661"
+      },
+      "902b4d806404771f": {
+        "functions.jsonl": "91cf5119e34782efac35e9d669e22b3370ef1152eaaa83d737c03575459813d7",
+        "summary.json": "4e5e45f043e7102cf13372c5828017a6dab29250b49efcbb715a4345facb1fd9"
+      }
+    }
+  },
+  "binaries": [
+    {
+      "binary_id": "86424e839ec26fb4",
+      "paths": [
+        "Client/CONFIG.exe"
+      ],
+      "functions": 88,
+      "executable_bytes": 19968,
+      "function_body_bytes_in_executable": 18087,
+      "unclassified_executable_bytes": 1881,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "34c61a5935e328b6",
+      "paths": [
+        "Client/GameGuard.des"
+      ],
+      "functions": 1,
+      "executable_bytes": 434176,
+      "function_body_bytes_in_executable": 487,
+      "unclassified_executable_bytes": 433689,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "05a39841f490dbc2",
+      "paths": [
+        "Client/Updater.exe"
+      ],
+      "functions": 2445,
+      "executable_bytes": 286720,
+      "function_body_bytes_in_executable": 254919,
+      "unclassified_executable_bytes": 31801,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "2281679d7b2ec3a0",
+      "paths": [
+        "Client/game.exe"
+      ],
+      "functions": 7116,
+      "executable_bytes": 1970176,
+      "function_body_bytes_in_executable": 1608707,
+      "unclassified_executable_bytes": 361469,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "334aa12f7dee453d",
+      "paths": [
+        "Client/ijl15.dll"
+      ],
+      "functions": 406,
+      "executable_bytes": 319488,
+      "function_body_bytes_in_executable": 224755,
+      "unclassified_executable_bytes": 94733,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "0df0c22bf411ad67",
+      "paths": [
+        "Client/zlib.dll"
+      ],
+      "functions": 154,
+      "executable_bytes": 39424,
+      "function_body_bytes_in_executable": 35685,
+      "unclassified_executable_bytes": 3739,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "7cf99fd59349bd01",
+      "paths": [
+        "Server/PSM_Client/Bin/dbgeng.dll",
+        "Server/PSM_Client/dbgeng.dll",
+        "Server/PSM_Server/dbgeng.dll"
+      ],
+      "functions": 6179,
+      "executable_bytes": 2185728,
+      "function_body_bytes_in_executable": 1746577,
+      "unclassified_executable_bytes": 439151,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "412f6c0ed9363162",
+      "paths": [
+        "Server/PSM_Client/Bin/dbghelp.dll",
+        "Server/PSM_Client/dbghelp.dll",
+        "Server/PSM_Server/dbghelp.dll"
+      ],
+      "functions": 5390,
+      "executable_bytes": 865792,
+      "function_body_bytes_in_executable": 716238,
+      "unclassified_executable_bytes": 149554,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "1152380264a55063",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth.dll"
+      ],
+      "functions": 627,
+      "executable_bytes": 49152,
+      "function_body_bytes_in_executable": 39866,
+      "unclassified_executable_bytes": 9286,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "e64a1a4292bc60d7",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth53.dll"
+      ],
+      "functions": 706,
+      "executable_bytes": 163840,
+      "function_body_bytes_in_executable": 156879,
+      "unclassified_executable_bytes": 6961,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "3ebc4f4affdb09c4",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth54.dll"
+      ],
+      "functions": 560,
+      "executable_bytes": 131072,
+      "function_body_bytes_in_executable": 125172,
+      "unclassified_executable_bytes": 5900,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "f2a46bbd1e7674c4",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth55.dll"
+      ],
+      "functions": 512,
+      "executable_bytes": 118784,
+      "function_body_bytes_in_executable": 111624,
+      "unclassified_executable_bytes": 7160,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "83a46bb09eaf5e6c",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth60.dll"
+      ],
+      "functions": 629,
+      "executable_bytes": 81920,
+      "function_body_bytes_in_executable": 70400,
+      "unclassified_executable_bytes": 11520,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "e96115e565a4db0d",
+      "paths": [
+        "Server/PSM_Client/Bin/ggsrvdll.dll"
+      ],
+      "functions": 174,
+      "executable_bytes": 28672,
+      "function_body_bytes_in_executable": 26848,
+      "unclassified_executable_bytes": 1824,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "ee9ee6c5494dd69f",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_dbAgent.exe"
+      ],
+      "functions": 1571,
+      "executable_bytes": 344064,
+      "function_body_bytes_in_executable": 273783,
+      "unclassified_executable_bytes": 70281,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "a843dcbd1f767954",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_game.exe"
+      ],
+      "functions": 3438,
+      "executable_bytes": 897024,
+      "function_body_bytes_in_executable": 740675,
+      "unclassified_executable_bytes": 156349,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "d19bb3a2dbef2635",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_gameLog.exe"
+      ],
+      "functions": 1247,
+      "executable_bytes": 241664,
+      "function_body_bytes_in_executable": 187805,
+      "unclassified_executable_bytes": 53859,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "2f9a0b2a47209861",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_login.exe"
+      ],
+      "functions": 1327,
+      "executable_bytes": 258048,
+      "function_body_bytes_in_executable": 197881,
+      "unclassified_executable_bytes": 60167,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "31ec1b5cf818c403",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_session.exe"
+      ],
+      "functions": 1314,
+      "executable_bytes": 258048,
+      "function_body_bytes_in_executable": 199489,
+      "unclassified_executable_bytes": 58559,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "de0ee6f1b6542eec",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_userLog.exe"
+      ],
+      "functions": 1226,
+      "executable_bytes": 229376,
+      "function_body_bytes_in_executable": 177340,
+      "unclassified_executable_bytes": 52036,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "ac696575d1c5894f",
+      "paths": [
+        "Server/PSM_Client/PSM_Agent.exe"
+      ],
+      "functions": 2806,
+      "executable_bytes": 409600,
+      "function_body_bytes_in_executable": 321504,
+      "unclassified_executable_bytes": 88096,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "d82a64629ec08995",
+      "paths": [
+        "Server/PSM_Server/PSMServer_Agent.exe"
+      ],
+      "functions": 2804,
+      "executable_bytes": 405504,
+      "function_body_bytes_in_executable": 320968,
+      "unclassified_executable_bytes": 84536,
+      "shared_body_ranges": []
+    },
+    {
+      "binary_id": "902b4d806404771f",
+      "paths": [
+        "Server/PSM_Server/PSMServer_Mgr.exe"
+      ],
+      "functions": 4539,
+      "executable_bytes": 614400,
+      "function_body_bytes_in_executable": 490196,
+      "unclassified_executable_bytes": 124204,
+      "shared_body_ranges": []
+    }
+  ],
+  "catalog_sha256": "01ac89ad1fb9ed03d2414eff3b822912c1d5631efa16b510ae6f212482570b57"
+}

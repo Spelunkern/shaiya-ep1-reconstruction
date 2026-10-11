@@ -1,0 +1,254 @@
+{
+  "schema": 1,
+  "baseline_id": "7c4fe1157c5b3af787cf27c11ff47ab2903b30f627ede2e9b4a81fea1b7e057a",
+  "note": "Diagnostic summary from local analysis logs; not a correctness verdict.",
+  "binaries": [
+    {
+      "binary_id": "86424e839ec26fb4",
+      "paths": [
+        "Client/CONFIG.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "34c61a5935e328b6",
+      "paths": [
+        "Client/GameGuard.des"
+      ],
+      "messages": [
+        "ERROR buffer error: null (DialogResourceDataType) ghidra.program.model.mem.MemoryAccessException",
+        "ERROR buffer error: null (DialogResourceDataType) ghidra.program.model.mem.MemoryAccessException",
+        "ERROR buffer error: null (DialogResourceDataType) ghidra.program.model.mem.MemoryAccessException",
+        "ERROR buffer error: null (DialogResourceDataType) ghidra.program.model.mem.MemoryAccessException",
+        "ERROR buffer error: null (DialogResourceDataType) ghidra.program.model.mem.MemoryAccessException",
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Decompiling 0046aa60, pcode error at 3096f7b4: Could not follow disassembly flow into non-existing memory at 3096f7b4 (DecompileCallback)  ",
+        "WARN  Decompiling 0046aa60, pcode error at 3096f7d4: Could not follow disassembly flow into non-existing memory at 3096f7d4 (DecompileCallback)  ",
+        "WARN  Decompiling 0046aa60, pcode error at 3096f7e4: Could not follow disassembly flow into non-existing memory at 3096f7e4 (DecompileCallback)  ",
+        "WARN  Decompiling 0046aa60, pcode error at 00410677: Disassembly not permitted within uninitialized memory block (DecompileCallback)  "
+      ]
+    },
+    {
+      "binary_id": "05a39841f490dbc2",
+      "paths": [
+        "Client/Updater.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "2281679d7b2ec3a0",
+      "paths": [
+        "Client/game.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "ERROR Invalid PNG data at 005f0338 (PngDataType)  ",
+        "ERROR Invalid PNG data at 005f6140 (PngDataType)  ",
+        "WARN  Decompiling 00520080: Unable to read bytes at ram:04040100 (DecompileCallback)  "
+      ]
+    },
+    {
+      "binary_id": "334aa12f7dee453d",
+      "paths": [
+        "Client/ijl15.dll"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "0df0c22bf411ad67",
+      "paths": [
+        "Client/zlib.dll"
+      ],
+      "messages": [
+        "WARN  Invalid or missing function at 1000c06c (ExportDataDirectory)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "7cf99fd59349bd01",
+      "paths": [
+        "Server/PSM_Client/Bin/dbgeng.dll",
+        "Server/PSM_Client/dbgeng.dll",
+        "Server/PSM_Server/dbgeng.dll"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "412f6c0ed9363162",
+      "paths": [
+        "Server/PSM_Client/Bin/dbghelp.dll",
+        "Server/PSM_Client/dbghelp.dll",
+        "Server/PSM_Server/dbghelp.dll"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "1152380264a55063",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth.dll"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "e64a1a4292bc60d7",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth53.dll"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "3ebc4f4affdb09c4",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth54.dll"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "f2a46bbd1e7674c4",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth55.dll"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "83a46bb09eaf5e6c",
+      "paths": [
+        "Server/PSM_Client/Bin/ggauth60.dll"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "e96115e565a4db0d",
+      "paths": [
+        "Server/PSM_Client/Bin/ggsrvdll.dll"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "ee9ee6c5494dd69f",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_dbAgent.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "a843dcbd1f767954",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_game.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "d19bb3a2dbef2635",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_gameLog.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "2f9a0b2a47209861",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_login.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "31ec1b5cf818c403",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_session.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "de0ee6f1b6542eec",
+      "paths": [
+        "Server/PSM_Client/Bin/ps_userLog.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "ac696575d1c5894f",
+      "paths": [
+        "Server/PSM_Client/PSM_Agent.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "d82a64629ec08995",
+      "paths": [
+        "Server/PSM_Server/PSMServer_Agent.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    },
+    {
+      "binary_id": "902b4d806404771f",
+      "paths": [
+        "Server/PSM_Server/PSMServer_Mgr.exe"
+      ],
+      "messages": [
+        "WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  ",
+        "WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: <local-toolchain>/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  "
+      ]
+    }
+  ]
+}
