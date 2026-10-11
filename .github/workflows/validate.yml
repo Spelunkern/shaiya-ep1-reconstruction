@@ -14,12 +14,43 @@ jobs:
       - uses: actions/setup-python@v7.0.0
         with:
           python-version: '3.12'
-      - run: python3 -m unittest discover -s tests -v
-      - run: python3 tools/check_distribution.py
-      - run: python3 tools/reverse.py verify
-      - run: python3 tools/reverse.py audit --originals
-      - run: python3 tools/reverse.py validate
+      - run: python -m unittest discover -s tests -v
+      - run: python tools/check_distribution.py
+      - run: python tools/reverse.py verify
+      - run: python tools/reverse.py audit --originals
+      - run: python tools/reverse.py validate
       - name: Install example test dependencies
-        run: python3 -m pip install -r contributions/86424e839ec26fb4-fn-00001d80/tests/requirements.txt
-      - name: Compile and compare first block with original x86 instructions
-        run: python3 contributions/86424e839ec26fb4-fn-00001d80/tests/differential.py
+        run: python -m pip install -r contributions/86424e839ec26fb4-fn-00001d80/tests/requirements.txt
+      - name: Compare rebuilt example with original x86 instructions
+        run: python contributions/86424e839ec26fb4-fn-00001d80/tests/differential.py
+  windows-first-block:
+    runs-on: windows-2025
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -v
+      - run: python tools/check_distribution.py
+      - run: python tools/reverse.py verify
+      - run: python tools/reverse.py audit --originals
+      - run: python tools/reverse.py validate
+      - name: Add Clang to PATH
+        shell: pwsh
+        run: '"C:\Program Files\LLVM\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append'
+      - name: Install example test dependencies
+        run: python -m pip install -r contributions/86424e839ec26fb4-fn-00001d80/tests/requirements.txt
+      - name: Compare rebuilt example with original x86 instructions
+        run: python contributions/86424e839ec26fb4-fn-00001d80/tests/differential.py
+      - name: Install pinned Windows Ghidra and JDK
+        run: python tools/install_toolchain.py
+      - name: Set pinned Ghidra environment
+        shell: pwsh
+        run: |
+          "GHIDRA_HOME=$PWD\work\toolchain\ghidra_12.1.4_PUBLIC" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          "JAVA_HOME=$PWD\work\toolchain\jdk-21.0.12.1+1" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Reproduce CONFIG baseline with native Windows headless launcher
+        run: python tools/reverse.py analyze --binary Client/CONFIG.exe
+      - name: Export example evidence with native Windows headless launcher
+        run: python tools/reverse.py export 86424e839ec26fb4-fn-00001d80

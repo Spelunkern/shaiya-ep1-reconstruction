@@ -1,8 +1,10 @@
-# Guía de contribuciones
+# Contribution guide
 
-El procedimiento exacto está en [CONTRIBUTING.md](CONTRIBUTING.md), el archivo que
-GitHub presenta a los contribuidores. Para trabajar con agentes, consultar la
-[guía operativa](docs/AGENT_GUIDE.md) y el [prompt](docs/AGENT_PROMPT.md).
+[CONTRIBUTING.md](CONTRIBUTING.md) is the complete procedure GitHub presents to
+contributors. Read the [agent guide](docs/AGENT_GUIDE.md) and
+[prompt](docs/AGENT_PROMPT.md); Windows users also have a
+[PowerShell guide](docs/WINDOWS.md).
 
-El [primer bloque de ejemplo](docs/FIRST_BLOCK.md) incluye fuente, análisis, ABI,
-evidencia y pruebas reproducibles contra las instrucciones originales.
+The [first example](docs/FIRST_BLOCK.md) includes reconstructed source, ABI,
+evidence, and reproducible tests against actual original instructions.
+Project-authored contributions use [BSD-3-Clause](LICENSE).

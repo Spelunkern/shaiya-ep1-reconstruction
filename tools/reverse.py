@@ -144,7 +144,9 @@ def choose_binary(value):
 def tool_env(args):
     ghidra = Path(args.ghidra or os.environ.get('GHIDRA_HOME', ''))
     jdk = Path(args.jdk or os.environ.get('JAVA_HOME', ''))
-    if not (ghidra / 'support/analyzeHeadless').is_file() or not (jdk / 'bin/java').is_file():
+    launcher = 'analyzeHeadless.bat' if os.name == 'nt' else 'analyzeHeadless'
+    java = 'java.exe' if os.name == 'nt' else 'java'
+    if not (ghidra / 'support' / launcher).is_file() or not (jdk / 'bin' / java).is_file():
         raise ValueError('Set GHIDRA_HOME and JAVA_HOME, or pass --ghidra and --jdk')
     release = (jdk / 'release').read_text()
     if 'JAVA_VERSION="21.' not in release:
@@ -155,6 +157,20 @@ def tool_env(args):
     env = dict(os.environ, JAVA_HOME=str(jdk.resolve()))
     env['PATH'] = str(jdk.resolve() / 'bin') + os.pathsep + env.get('PATH', '')
     return ghidra.resolve(), env
+
+
+def ghidra_invocation(ghidra, arguments, windows=None):
+    windows = os.name == 'nt' if windows is None else windows
+    launcher = ghidra / 'support' / ('analyzeHeadless.bat' if windows else 'analyzeHeadless')
+    parts = [str(launcher), *map(str, arguments)]
+    if not windows:
+        return parts
+    # Batch launch through cmd.exe. Every argument is quoted; shell expansion is rejected.
+    if any(any(c in part for c in '"%!?&|<>^\r\n') for part in parts):
+        raise ValueError('Windows Ghidra paths must not contain shell metacharacters; use C:\\Projects')
+    command = ' '.join('"' + part + '"' for part in parts)
+    prefix = subprocess.list2cmdline([os.environ.get('COMSPEC', 'cmd.exe'), '/d', '/s', '/c'])
+    return prefix + ' "' + command + '"'
 
 
 def cmd_analyze(args):
@@ -178,16 +194,21 @@ def cmd_analyze(args):
             raise ValueError(f'Incomplete project exists for {bid}; inspect logs and move it aside before retry')
         logs = ROOT / 'work/logs'
         logs.mkdir(parents=True, exist_ok=True)
-        command = [str(ghidra / 'support/analyzeHeadless'), str(projects), bid,
+        command = ghidra_invocation(ghidra, [str(projects), bid,
                    '-import', str(ROOT / b['paths'][0]), '-max-cpu', '4',
                    '-analysisTimeoutPerFile', str(args.timeout), '-scriptPath', str(ROOT / 'tools/ghidra'),
-                   '-postScript', 'ExportBaseline.java', str(export_out), '-log', str(logs / f'{bid}.log')]
+                   '-postScript', 'ExportBaseline.java', str(export_out), '-log', str(logs / f'{bid}.log')])
         if frozen:
             for name in ('functions.jsonl', 'summary.json'):
                 (export_out / name).unlink(missing_ok=True)
         print(f'ANALYZE {b["paths"][0]} ({bid})', flush=True)
         with (logs / f'{bid}.console.log').open('w') as console:
             subprocess.run(command, env=env, check=True, stdout=console, stderr=subprocess.STDOUT)
+        # Java BufferedWriter.newLine emits CRLF on Windows; normalize only new exports.
+        for name in ('functions.jsonl', 'summary.json'):
+            generated = export_out / name
+            if generated.exists():
+                generated.write_bytes(generated.read_bytes().replace(b'\r\n', b'\n'))
         if frozen:
             for name in ('functions.jsonl', 'summary.json'):
                 if not (export_out / name).exists() or sha(export_out / name) != sha(out / name):
@@ -375,10 +396,10 @@ def cmd_export(args):
     out.mkdir(parents=True, exist_ok=True)
     for name in ('listing.txt', 'decompiled.c'):
         (out / name).unlink(missing_ok=True)
-    subprocess.run([str(ghidra / 'support/analyzeHeadless'), str(projects), b['binary_id'],
+    subprocess.run(ghidra_invocation(ghidra, [str(projects), b['binary_id'],
                     '-process', Path(binary['paths'][0]).name, '-noanalysis', '-readOnly',
                     '-scriptPath', str(ROOT / 'tools/ghidra'), '-postScript', 'ExportBlock.java',
-                    hex(b['entry_rva']), str(out), b['binary_sha256'], b['body_sha256']], env=env, check=True)
+                    hex(b['entry_rva']), str(out), b['binary_sha256'], b['body_sha256']]), env=env, check=True)
     if not all((out / p).is_file() for p in ('listing.txt', 'decompiled.c')):
         raise ValueError('Ghidra returned without the requested evidence')
     print(out)
@@ -546,9 +567,9 @@ def cmd_prompt(args):
     binary = choose_binary(block['binary_id'])
     template = (ROOT / 'docs/AGENT_PROMPT.md').read_text()
     content = template.split('```text\n', 1)[1].split('```', 1)[0]
-    for key, value in [('ID_DEL_BLOQUE', block['id']), ('USUARIO_GITHUB', args.owner), ('ID_DEL_BINARIO', block['binary_id'])]:
+    for key, value in [('BLOCK_ID', block['id']), ('GITHUB_USER', args.owner), ('BINARY_ID', block['binary_id'])]:
         content = content.replace(key, value)
-    print(f"Binario: {binary['paths'][0]}\nSHA-256: {binary['sha256']}\nBaseline: {block['baseline_id']}\n")
+    print(f"Binary: {binary['paths'][0]}\nSHA-256: {binary['sha256']}\nBaseline: {block['baseline_id']}\n")
     print(content)
 
 
@@ -564,6 +585,8 @@ def cmd_bundle(args):
             if 'pe' in item:
                 archive.write(ROOT / item['path'], arcname=item['path'])
         archive.write(ROOT / 'manifests/public-binaries.json', arcname='manifests/public-binaries.json')
+        for notice in ('LICENSE', 'NOTICE.md'):
+            archive.write(ROOT / notice, arcname=notice)
     write(dist / 'binaries-bundle.json', dict(file=output.name, size=output.stat().st_size, sha256=sha(output)))
     (dist / 'SHA256SUMS').write_text(f"{sha(output)}  {output.name}\n")
     print(output)

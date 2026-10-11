@@ -1,20 +1,20 @@
-name: Reserva o coordinación de bloque
-description: Coordinar un bloque del catálogo congelado
+name: Block reservation or coordination
+description: Coordinate a block from the frozen catalog
 title: 'block: '
 body:
   - type: input
     id: block
     attributes:
-      label: ID exacto del bloque
+      label: Exact block ID
     validations:
       required: true
   - type: input
     id: owner
     attributes:
-      label: Contribuidor
+      label: Contributor
     validations:
       required: true
   - type: textarea
     id: evidence
     attributes:
-      label: Alcance, dependencias o impedimentos
+      label: Scope, dependencies, or blockers

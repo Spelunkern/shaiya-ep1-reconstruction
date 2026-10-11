@@ -1,12 +1,13 @@
-Bloque: `ID_EXACTO` / reserva / cambio de contrato / infraestructura
-Baseline: `HASH_COMPLETO`
+Block: `EXACT_BLOCK_ID` / reservation / contract change / infrastructure
+Baseline: `FULL_BASELINE_HASH`
 
-Describir el comportamiento reconstruido y las direcciones que lo sustentan.
+Describe reconstructed behavior and the original addresses supporting it.
 
-- Evidencia original y contrato ABI:
-- Dependencias y tipos compartidos:
-- Pruebas ejecutadas, comandos, entorno y resultados:
-- Preguntas abiertas o límites de la comparación:
+- Original evidence and ABI contract:
+- Dependencies and shared types:
+- Executed tests, commands, environment, and results:
+- Open questions or comparison limits:
 
-Adjuntar `submission.json`, código, análisis, pruebas y evidencia en
-`contributions/<block_id>/`. Una salida del decompilador no equivale a fuente reconstruida.
+Include `submission.json`, source, analysis, tests, and evidence in
+`contributions/<block_id>/`. Decompiler output alone is not reconstructed source.
+Project-authored contributions use BSD-3-Clause; preserve applicable notices.

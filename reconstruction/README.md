@@ -1,15 +1,14 @@
-# Integración del fuente
+# Source integration
 
-Esta carpeta recibirá proyectos compilables por binario, alimentados por aportes
-aceptados. Todavía no existe una implementación reconstruida ni un build del cliente
-o del servidor. El catálogo es la estructura de trabajo, no una reconstrucción.
+This directory will contain buildable per-binary projects assembled from accepted
+submissions. No whole-client or whole-server build exists yet. The block catalog
+is the work map; the first function example remains under `contributions/`.
 
-Cada proyecto debe registrar compilador, arquitectura Windows x86, opciones,
-imports/exports, recursos, inicialización, contratos compartidos y el mapa de
-símbolos a bloques. Incluir una sola implementación por símbolo y dejar fallar
-el enlace ante dependencias faltantes. Las DLL idénticas se construyen una vez
-y sus resultados se instalan en las rutas originales inventariadas.
+Record compiler, Windows x86 target, options, imports/exports, resources,
+initialization, shared contracts, and a symbol-to-block map. Include one production
+implementation per symbol and fail linking on missing dependencies. Build identical
+DLLs once and install results at their inventoried original paths.
 
-Los contratos de funciones, estructuras y datos deben resolverse antes de unir
-bloques que los comparten. Los bloques de integración del catálogo son responsables
-de esa coordinación y de las pruebas de conjunto.
+Resolve function, type, and data contracts before combining their consumers.
+Integration blocks own this coordination and whole-binary tests. Project-authored
+integration code uses BSD-3-Clause as described in `LICENSE` and `NOTICE.md`.

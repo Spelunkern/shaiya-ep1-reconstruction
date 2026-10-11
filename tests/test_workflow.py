@@ -1,6 +1,6 @@
 """Check identity, coverage, reservation and evidence integrity boundaries."""
 import json
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 import random
 import tempfile
 import unittest
@@ -102,7 +102,12 @@ class SubmissionTests(unittest.TestCase):
         for path in ('../secret', str(outside)):
             with self.assertRaises(ValueError):
                 r.local_files(self.directory, [path])
-        (self.directory / 'linked').symlink_to(outside)
+        try:
+            (self.directory / 'linked').symlink_to(outside)
+        except OSError as error:
+            if getattr(error, 'winerror', None) == 1314:
+                self.skipTest('Windows symlink creation privilege is unavailable')
+            raise
         with self.assertRaises(ValueError):
             r.local_files(self.directory, ['linked'])
 
@@ -139,6 +144,17 @@ class SubmissionTests(unittest.TestCase):
             r.validate_review(self.review_record(),self.block,self.check(),self.directory)
 
 class WorkflowTests(unittest.TestCase):
+    def test_windows_batch_launch_handles_spaces_and_rejects_expansion(self):
+        ghidra = PureWindowsPath('C:/Program Files/Ghidra')
+        command = r.ghidra_invocation(ghidra, [PureWindowsPath('C:/User Projects/work'), 'test'], windows=True)
+        self.assertIn('"C:\\Program Files\\Ghidra\\support\\analyzeHeadless.bat"', command)
+        self.assertIn('"C:\\User Projects\\work"', command)
+        for unsafe in ('C:/work%PATH%', 'C:/work&other', 'C:/work!name'):
+            with self.assertRaisesRegex(ValueError, 'metacharacters'):
+                r.ghidra_invocation(ghidra, [unsafe], windows=True)
+        command = r.ghidra_invocation(Path('/opt/ghidra'), ['/tmp/projects', 'test'], windows=False)
+        self.assertEqual(command, ['/opt/ghidra/support/analyzeHeadless', '/tmp/projects', 'test'])
+
     def test_reservation_collision_owner_and_start(self):
         with tempfile.TemporaryDirectory() as temporary, contextlib.redirect_stdout(io.StringIO()):
             root = Path(temporary)

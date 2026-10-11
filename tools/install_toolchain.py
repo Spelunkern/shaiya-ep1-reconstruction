@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install checksum-pinned Ghidra/JDK locally on Linux x86_64 (Python 3.12+)."""
+"""Install checksum-pinned Ghidra/JDK locally on Linux or Windows x86_64 (Python 3.12+)."""
 import hashlib
 import json
 from pathlib import Path
@@ -11,11 +11,13 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 
 def main():
-    if platform.system() != 'Linux' or platform.machine() not in ('x86_64', 'AMD64'):
-        raise SystemExit('This installer targets Linux x86_64. See docs/TOOLCHAIN.md for other systems.')
+    if platform.system() not in ('Linux', 'Windows') or platform.machine().lower() not in ('x86_64', 'amd64'):
+        raise SystemExit('This installer supports Linux and Windows x86_64; see docs/TOOLCHAIN.md.')
     vendor = ROOT / 'work/toolchain'
     vendor.mkdir(parents=True, exist_ok=True)
     lock = json.loads((ROOT / 'manifests/toolchain.json').read_text())
+    if platform.system() == 'Windows':
+        lock = json.loads((ROOT / 'manifests/platform-tools.json').read_text())['windows_x86_64']
     for item in lock['packages']:
         archive = vendor / item['name']
         if not archive.exists():

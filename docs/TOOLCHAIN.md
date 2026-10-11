@@ -1,9 +1,10 @@
-# Herramientas y reproducción
+# Toolchain and reproduction
 
-La baseline está fijada a **Ghidra 12.1.4** con **JDK 21**. La CLI requiere
-Python 3.12+ y biblioteca estándar. `manifests/toolchain.json` registra versiones,
-URLs oficiales y SHA-256 de los archivos usados. No usar otra versión para
-regenerar límites de bloques dentro de esta baseline.
+Analysis is pinned to **Ghidra 12.1.4** and **JDK 21**. Python 3.12+ and the standard
+library support the CLI. `manifests/toolchain.json` records the initial Linux
+packages and remains frozen; `manifests/platform-tools.json` adds the Windows JDK.
+Each download has an official URL and SHA-256. Use the pinned versions to reproduce
+boundaries. See [WINDOWS.md](WINDOWS.md) for native PowerShell instructions.
 
 ## Linux x86_64
 
@@ -14,39 +15,33 @@ export JAVA_HOME="$PWD/work/toolchain/jdk-21.0.12.1+1"
 python3 tools/reverse.py analyze --binary Client/game.exe
 ```
 
-Se puede usar una instalación existente con esas variables o con `--ghidra` y
-`--jdk`. El instalador verifica los paquetes antes de extraerlos y no cambia el
-Java del sistema. No es necesario reinstalar para usar el catálogo publicado.
+Existing pinned installations can be selected with these variables or `--ghidra`
+and `--jdk`. The installer verifies packages before extraction and does not change
+system Java. Analysis of every unique binary uses `python3 tools/reverse.py analyze`.
 
-El análisis de los 23 binarios únicos se ejecuta con:
+Imports use Ghidra's PE loader and auto-analysis, four CPUs, and 1,800 seconds per
+file. Exports record language, compiler spec, image base, hash, count, and timeout.
+Timeout prevents acceptance; success does not prove all boundaries are correct.
+Inspect analyzer warnings and evidence independently.
 
-```bash
-python3 tools/reverse.py analyze
-```
+Projects are `work/ghidra/<binary_id>.gpr`; logs are `work/logs/` and published
+exports are `analysis/baseline/<binary_id>/`. Preserve incomplete projects and
+logs, then move them into a diagnostic directory before retrying. Use separate
+project copies for exploratory annotations rather than changing the canonical project.
 
-Los imports iniciales usan el cargador PE y autoanálisis de Ghidra, cuatro CPUs
-y un límite de 1800 segundos por archivo. Se registra idioma, compiler spec,
-image base, hash, número de funciones y timeout. Un timeout impide aceptar
-ese export. Las advertencias de Ghidra requieren inspección; una ejecución
-exitosa no prueba que todas las funciones fueron identificadas correctamente.
+## Windows x86_64
 
-Los proyectos están en `work/ghidra/<binary_id>.gpr` y los logs en `work/logs/`.
-Los exports publicados están en `analysis/baseline/<binary_id>/`. Los proyectos
-incompletos no se sobreescriben: conservarlos con sus logs y moverlos a una carpeta
-de diagnóstico antes de reintentar. Tampoco editar el proyecto canónico al trabajar
-una hipótesis; guardar una copia para anotaciones exploratorias.
+The same installer selects a checksum-pinned Windows JDK ZIP. The CLI uses
+`analyzeHeadless.bat` through the Windows command processor and `java.exe`.
+Line endings in newly generated exports are normalized to LF before comparing
+against the frozen Linux baseline. Git attributes keep project text files at LF.
+The Windows CI job exercises the example and regeneration of the CONFIG baseline.
 
-## Windows y otros sistemas
+Other architectures are not covered by the installer; select suitable official
+JDK 21 builds manually and verify reproduction before asserting compatibility.
 
-Instalar el mismo Ghidra y un JDK 21 de la arquitectura correspondiente desde sus
-fuentes oficiales. La CLI del análisis inicial está probada en Linux; el lanzador
-Windows puede necesitar adaptación para `analyzeHeadless.bat`. No considerar ese
-flujo verificado hasta reproducir el export y los hashes. Los contribuyentes pueden
-usar la GUI con los mismos binarios y anotar evidencia sin alterar la baseline.
+## Official references
 
-## Referencias oficiales
-
-El flujo utiliza importación, `-postScript`, `-process`, `-noanalysis` y `-readOnly`
-según la [documentación de analyzeHeadless](https://github.com/NationalSecurityAgency/ghidra/blob/master/Ghidra/RuntimeScripts/support/analyzeHeadlessREADME.md).
-Ver [Ghidra 12.1.4](https://github.com/NationalSecurityAgency/ghidra/releases/tag/Ghidra_12.1.4_build)
-y [Temurin JDK 21](https://github.com/adoptium/temurin21-binaries/releases).
+See [Ghidra headless options](https://github.com/NationalSecurityAgency/ghidra/blob/master/Ghidra/RuntimeScripts/support/analyzeHeadlessREADME.md),
+[Ghidra 12.1.4](https://github.com/NationalSecurityAgency/ghidra/releases/tag/Ghidra_12.1.4_build),
+and [Temurin JDK 21](https://github.com/adoptium/temurin21-binaries/releases).

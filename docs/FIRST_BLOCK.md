@@ -1,25 +1,25 @@
-# Primer bloque completo de ejemplo
+# First complete example block
 
-El ejemplo es [86424e839ec26fb4-fn-00001d80](../contributions/86424e839ec26fb4-fn-00001d80/),
-una función de `Client/CONFIG.exe` en VA `0x00401d80`, de 22 bytes y diez instrucciones.
-Mide unidades de 16 bits hasta cero. Es un bloque real del corpus, con fuente
-reconstruida, evidencia, contrato ABI y pruebas contra las instrucciones originales.
+The example is [86424e839ec26fb4-fn-00001d80](../contributions/86424e839ec26fb4-fn-00001d80/),
+a CONFIG.exe function at VA `0x00401d80`: 22 bytes and ten instructions. It scans
+16-bit little-endian units through zero. This is a real corpus block with source,
+ABI, original evidence, and comparisons against actual original instructions.
 
-Consultar su [análisis por dirección](../contributions/86424e839ec26fb4-fn-00001d80/analysis.md),
-[fuente C](../contributions/86424e839ec26fb4-fn-00001d80/src/function.c),
-[entrega](../contributions/86424e839ec26fb4-fn-00001d80/submission.json) y
-[resultados](../contributions/86424e839ec26fb4-fn-00001d80/logs/comparison.json).
+Read its [address-based analysis](../contributions/86424e839ec26fb4-fn-00001d80/analysis.md),
+[C source](../contributions/86424e839ec26fb4-fn-00001d80/src/function.c),
+[submission](../contributions/86424e839ec26fb4-fn-00001d80/submission.json), and
+[results](../contributions/86424e839ec26fb4-fn-00001d80/logs/comparison.json).
 
-## Repetir las pruebas en Linux x86_64
+## Linux x86_64
 
-Instalar Python 3.12+ con venv y Clang. En Ubuntu/Debian, si faltan:
+Install Python 3.12+, venv support, and Clang. Ubuntu/Debian, if missing:
 
 ```bash
 sudo apt-get update
 sudo apt-get install clang python3-venv
 ```
 
-Desde la raíz de un clon del repositorio:
+From the clone root:
 
 ```bash
 python3 tools/reverse.py verify
@@ -29,43 +29,44 @@ python3 -m venv .venv
 python3 tools/reverse.py validate --block 86424e839ec26fb4-fn-00001d80
 ```
 
-Salida esperada:
+## Windows x86_64
+
+Install the tools as described in [WINDOWS.md](WINDOWS.md). In PowerShell:
+
+```powershell
+py -3.12 -m venv .venv
+& .\.venv\Scripts\python.exe -m pip install -r contributions/86424e839ec26fb4-fn-00001d80/tests/requirements.txt
+& .\.venv\Scripts\python.exe contributions/86424e839ec26fb4-fn-00001d80/tests/differential.py
+py -3.12 tools/reverse.py validate --block 86424e839ec26fb4-fn-00001d80
+```
+
+Both platforms should print:
 
 ```text
 PASS 3042 scan + 4 fault + 1022 arithmetic comparisons against original x86 instructions
 ```
 
-Los objetos COFF y los resultados de esa ejecución se guardan en
-`work/first-block-test/`; no se sobreescriben los logs de la entrega. Se verifica el
-SHA-256 del binario y del cuerpo antes de emular. No hacen falta los datos del
-cliente, un servidor de juego ni ejecutar `CONFIG.exe` completo.
+New objects and results go to `work/first-block-test/`; submitted logs remain
+unchanged. The test checks original binary and body SHA-256 before emulation.
+No client assets, game server, or whole CONFIG.exe execution are required.
 
-## Qué demuestra
+## Evidence and limits
 
-La prueba usa el target `i686-pc-windows-msvc` en Clang y emulación x86-32 con
-Unicorn 2.1.4. Compara fuente compilada contra bytes originales, no contra una
-segunda traducción del pseudocódigo. Comprueba ABI, retorno y lecturas, a dos
-niveles de optimización, e incluye casos adversos y overflow de la cola aritmética.
-Ver [Clang](https://clang.llvm.org/docs/CrossCompilation.html) y
-[Unicorn](https://www.unicorn-engine.org/docs/tutorial.html) para sus interfaces.
+Clang builds `i686-pc-windows-msvc` COFF; Unicorn 2.1.4 emulates x86-32. Tests compare
+compiled source with original bytes, not another pseudocode translation. They
+check ABI, return, and exact input reads at two optimization levels, including
+adversarial inputs and synthetic arithmetic-tail overflow cases.
+See [Clang](https://clang.llvm.org/docs/CrossCompilation.html) and
+[Unicorn](https://www.unicorn-engine.org/docs/tutorial.html) for the interfaces.
 
-No demuestra identidad byte a byte del build ni equivalencia del ejecutable
-completo. Los resultados registran límites concretos de emulación y de las pruebas.
-El ejemplo está `ready`, pendiente de revisión independiente; no se autoaprueba.
+This does not establish byte-identical builds or whole-executable equivalence.
+Specific limits are recorded in the proof. The submission is `ready`, pending
+independent review, and has no self-approval record.
 
-## Usarlo como plantilla
+## Use as a submission template
 
-Reservar **otro** bloque disponible. Copiar la estructura del ejemplo, no sus
-resultados, hashes ni contrato. El nuevo bloque necesita evidencia y pruebas
-propias. Si requiere WinAPI, objetos, globals o red, construir un harness que
-controle esas dependencias con contratos documentados. Los dobles de prueba no
-se convierten en implementaciones de producción.
-
-Leer [CONTRIBUTING.md](../CONTRIBUTING.md) y generar el prompt para el nuevo ID:
-
-```bash
-python3 tools/reverse.py prompt ID_DEL_BLOQUE --owner USUARIO_GITHUB > work/task.md
-```
-
-Crear `work/` con `mkdir -p work` si aún no existe. No reservar ni modificar el ejemplo como si fuera
-una tarea libre: su fuente ya está entregada y sirve para reproducir el proceso.
+Reserve another available block. Copy the structure, not hashes, results, or ABI.
+Provide your own evidence and an appropriate harness for callbacks, globals,
+WinAPI, or network contracts. Test doubles never fill production gaps.
+Follow [CONTRIBUTING.md](../CONTRIBUTING.md), generate your exact prompt with
+`reverse.py prompt`, and use BSD-3-Clause for project-authored source.

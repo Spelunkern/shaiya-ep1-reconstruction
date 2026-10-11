@@ -1,86 +1,101 @@
-# Contribuir un bloque con un agente de IA
+# Contribute a block with an AI agent
 
-El proyecto oficial es [Spelunkern/shaiya-ep1-reconstruction](https://github.com/Spelunkern/shaiya-ep1-reconstruction).
-Los binarios ya están incluidos. El [primer bloque](docs/FIRST_BLOCK.md) muestra
-una entrega real y cómo repetir sus pruebas.
+The upstream repository is [Spelunkern/shaiya-ep1-reconstruction](https://github.com/Spelunkern/shaiya-ep1-reconstruction).
+Original binaries are included. The [first block](docs/FIRST_BLOCK.md) is a real
+submission with reproducible tests. Windows users should start with
+[WINDOWS.md](docs/WINDOWS.md); commands below use Git and Python from the repository root.
 
-## 1. Preparar el fork
+## 1. Prepare a fork
 
-Crear un fork desde GitHub, clonarlo y agregar el upstream. Con GitHub CLI:
+Fork on GitHub and clone your fork. GitHub CLI can do both:
 
 ```bash
 gh repo fork Spelunkern/shaiya-ep1-reconstruction --clone
 cd shaiya-ep1-reconstruction
 git remote -v
-# Si gh no creó upstream:
+# Add upstream only if gh did not already create it:
 git remote add upstream https://github.com/Spelunkern/shaiya-ep1-reconstruction.git
 ```
 
-No agregar un upstream duplicado: comprobar primero `git remote -v`.
-Desde la raíz del fork:
+Check the remotes before adding a duplicate. On Windows, use `py -3.12` in place
+of `python` below, or use the Python executable from your virtual environment.
 
 ```bash
-python3 tools/reverse.py verify
-python3 tools/reverse.py audit --originals
-python3 tools/reverse.py list --kind function --available --max-instructions 30 --limit 20
+python tools/reverse.py verify
+python tools/reverse.py audit --originals
+python tools/reverse.py list --kind function --available --max-instructions 30 --limit 20
+python tools/reverse.py show BLOCK_ID
 ```
 
-Revisar `show ID_DEL_BLOQUE`. Empezar con pocas instrucciones y dependencias.
-`--available` excluye reservas, entregas existentes y flujos directos pendientes;
-una función corta todavía puede ser un thunk o requerir contratos complejos.
-No elegir el bloque de ejemplo: ya tiene una entrega.
+Choose few instructions and dependencies initially. `--available` excludes
+reservations, existing submissions, and unresolved direct flow. A short function
+may still be a thunk or depend on complex contracts. The example is already submitted.
 
-## 2. Reservar centralmente
+## 2. Obtain an accepted reservation
 
-Sustituir los valores en mayúsculas por el ID del catálogo y el usuario de GitHub:
+Replace `BLOCK_ID` with the exact catalog ID and `GITHUB_USER` with your account.
 
 ```bash
 git fetch upstream
-git switch -c claim/ID_DEL_BLOQUE upstream/main
-python3 tools/reverse.py claim ID_DEL_BLOQUE --owner USUARIO_GITHUB
-git add claims/ID_DEL_BLOQUE.json
-git commit -m "Reserve ID_DEL_BLOQUE"
+git switch -c claim/BLOCK_ID upstream/main
+python tools/reverse.py claim BLOCK_ID --owner GITHUB_USER
+git add claims/BLOCK_ID.json
+git commit -m "Reserve BLOCK_ID"
 git push -u origin HEAD
-gh pr create --repo Spelunkern/shaiya-ep1-reconstruction --base main \
-  --title "Reserve ID_DEL_BLOQUE" --body "Reservation for USUARIO_GITHUB"
 ```
 
-Esperar el merge del PR de reserva en upstream. La creación del archivo local es
-exclusiva, pero no es un bloqueo entre clones; la rama principal es la autoridad.
-Una issue puede coordinar la tarea, pero no sustituye la reserva aceptada.
-Las reservas vencen en siete días; renovación o reasignación requiere revisión.
-Los aportes entregados no vuelven a ser tareas libres al vencer la reserva.
+Open a PR against upstream/main containing only the reservation. With GitHub CLI:
 
-## 3. Iniciar el trabajo reservado
+```bash
+gh pr create --repo Spelunkern/shaiya-ep1-reconstruction --base main --title "Reserve BLOCK_ID" --body "Reservation for GITHUB_USER"
+```
 
-Después de que la reserva esté aceptada:
+Wait for the reservation PR to merge before reconstructing. File creation is
+exclusive within a clone; it is not a lock across clones. The accepted upstream
+reservation is authoritative. Issues can coordinate work but do not replace it.
+Reservations expire after seven days; renewal or reassignment requires review.
+Delivered blocks do not become available when a reservation expires.
+
+## 3. Start the reserved task
+
+After the reservation merges:
 
 ```bash
 git fetch upstream
-git switch -c reverse/ID_DEL_BLOQUE upstream/main
-python3 tools/reverse.py start ID_DEL_BLOQUE --owner USUARIO_GITHUB
-mkdir -p work
-python3 tools/reverse.py prompt ID_DEL_BLOQUE --owner USUARIO_GITHUB > work/task.md
+git switch -c reverse/BLOCK_ID upstream/main
+python tools/reverse.py start BLOCK_ID --owner GITHUB_USER
 ```
 
-Abrir el agente en la raíz del fork y darle el contenido de `work/task.md`.
-La [guía para agentes](docs/AGENT_GUIDE.md) fija el procedimiento completo.
-El prompt incluye el ID del binario, su ruta, SHA-256 y baseline.
-
-Instalar el Ghidra/JDK fijados según `docs/TOOLCHAIN.md`; luego:
+Create `work/` and generate the exact agent prompt. Linux:
 
 ```bash
-python3 tools/reverse.py analyze --binary ID_DEL_BINARIO
-python3 tools/reverse.py export ID_DEL_BLOQUE
+mkdir -p work
+python tools/reverse.py prompt BLOCK_ID --owner GITHUB_USER > work/task.md
 ```
 
-En un clon nuevo, `analyze` genera el proyecto y exige que el export reproduzca
-la baseline. Si difiere, conservar logs y presentar el diagnóstico; no cambiar
-el catálogo. Para datos o clasificación, inspeccionar los rangos directamente.
+PowerShell:
 
-## 4. Completar la entrega
+```powershell
+New-Item -ItemType Directory -Force work | Out-Null
+py -3.12 tools/reverse.py prompt BLOCK_ID --owner GITHUB_USER | Set-Content -Encoding utf8 work/task.md
+```
 
-Toda la implementación del bloque vive en `contributions/<block_id>/`:
+Open your agent in the fork root and provide `work/task.md`. Follow
+[the agent guide](docs/AGENT_GUIDE.md). Install the pinned tools using the relevant
+OS guide, then run:
+
+```bash
+python tools/reverse.py analyze --binary BINARY_ID
+python tools/reverse.py export BLOCK_ID
+```
+
+A fresh clone regenerates the Ghidra project and must reproduce the frozen export.
+If it differs, preserve logs and propose a diagnosis; do not rewrite the catalog.
+Inspect non-function blocks by their ranges in Ghidra.
+
+## 4. Complete the submission
+
+Keep all block work in `contributions/<block_id>/`:
 
 ```text
 submission.json
@@ -95,35 +110,38 @@ logs/comparison.log
 tests/...
 ```
 
-Registrar análisis por dirección, ABI, tipos y offsets, efectos y contratos de
-todas las dependencias del catálogo. Investigar llamadas indirectas, callbacks y
-referencias pendientes. `decompiled.c` es evidencia, no fuente de producción.
+Document evidence by address, ABI, layouts, effects, and contracts for every catalog
+dependency. Investigate indirect calls and unresolved references. Decompiled C
+belongs to evidence, not production source.
 
-Los tests deben contrastar el comportamiento con evidencia del original, detectar
-desviaciones e incluir condiciones límite. Conservar comandos reales, versiones,
-logs y límites de cada comparación. La compilación de lógica en Linux de 64 bits
-no valida el ABI Windows x86. No añadir stubs de producción para lograr enlace.
+Tests must compare against original evidence and detect deviations, including edge
+conditions. Retain real commands, versions, logs, and comparison limits. Host x64
+logic tests alone do not validate Windows x86 ABI. Do not fill production gaps with stubs.
+Declare every relevant source, test, and evidence file in `submission.json`.
+Coordinate shared type changes and their consumers separately.
 
-Declarar en `source_files`, `test_files` y `evidence_files` todos los archivos
-necesarios para reconstruir y repetir la evaluación. Las modificaciones de tipos
-compartidos van en propuestas coordinadas con sus consumidores.
+## 5. Submit for review
 
-## 5. Proponer el bloque
-
-Mantener `draft` si faltan contratos o verificaciones. Usar `ready` cuando se
-cumpla `docs/PROTOCOL.md` y `unknowns` esté vacío. `ready` no equivale a aprobación.
+Use `draft` while contracts or verification are incomplete. Use `ready` only when
+`docs/PROTOCOL.md` is satisfied and `unknowns` is empty. It is not an approval.
 
 ```bash
-python3 tools/reverse.py validate --block ID_DEL_BLOQUE
-# Ejecutar también el comando de pruebas real de tu bloque.
-git add contributions/ID_DEL_BLOQUE
-git commit -m "Reconstruct ID_DEL_BLOQUE"
+python tools/reverse.py validate --block BLOCK_ID
+# Also execute your block's actual test command.
+git add contributions/BLOCK_ID
+git commit -m "Reconstruct BLOCK_ID"
 git push -u origin HEAD
 gh pr create --repo Spelunkern/shaiya-ep1-reconstruction --base main
 ```
 
-Completar la plantilla del PR con comportamiento, baseline, ABI, pruebas y límites.
-Cada bloque necesita su propia reserva y entrega, incluso si un PR coordina varios.
-No incluir archivos generados en `work/`, cambios a los originales ni evaluaciones
-propias. El revisor independiente reproduce los resultados; el mantenedor acepta
-la evaluación en la rama principal. Editar el aporte invalida una revisión previa.
+Complete the PR template with behavior, baseline, ABI, tests, and limitations.
+Each block needs its own reservation and submission. Do not include generated
+`work/` files, modified originals, or self-reviews. An independent reviewer
+reproduces results; maintainer acceptance on main makes the review official.
+Changes to a submission invalidate previous review digests.
+
+## License
+
+Submit project-authored contributions under [BSD-3-Clause](LICENSE), retaining
+applicable copyright and third-party notices. See [NOTICE.md](NOTICE.md) for the
+scope of the license and treatment of original materials.

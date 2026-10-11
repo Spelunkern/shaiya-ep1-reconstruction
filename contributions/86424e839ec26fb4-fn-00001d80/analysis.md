@@ -1,67 +1,63 @@
-# Primer bloque: longitud de unidades de 16 bits
+# First block: length of 16-bit units
 
-Bloque `86424e839ec26fb4-fn-00001d80`, perteneciente a `Client/CONFIG.exe`.
-SHA-256 del binario:
+Block `86424e839ec26fb4-fn-00001d80` belongs to `Client/CONFIG.exe`.
+Original SHA-256:
 `86424e839ec26fb454cd343c451200e290cf528a88b53c2e77e7407573dac844`.
-Entrada RVA `0x1d80`, VA `0x00401d80`; cuerpo `[0x1d80,0x1d96)`, 22 bytes.
-Digest del cuerpo:
+Entry RVA `0x1d80`, VA `0x00401d80`; body `[0x1d80,0x1d96)`, 22 bytes.
+Body digest:
 `ab4bab194aae7751eae686a11b9b3777dd65c29138d9a7d064cc8a88cb137299`.
 
-## Evidencia e interpretación
+## Evidence and interpretation
 
-| Dirección | Evidencia | Consecuencia |
+| Address | Evidence | Consequence |
 |---|---|---|
-| `00401d80` | `MOV EAX,[ESP+4]` | El primer argumento es un puntero en la pila |
-| `00401d84` | `MOV CX,[EAX]` de 16 bits | Lee una unidad de dos bytes |
-| `00401d87`, `00401d88` | Dos `INC EAX` | Avanza dos bytes por iteración |
-| `00401d89`, `00401d8c` | `TEST CX,CX; JNZ 00401d84` | Continúa hasta la primera unidad cero |
-| `00401d8e` | `SUB EAX,[ESP+4]` | Calcula distancia de bytes con aritmética de 32 bits |
-| `00401d92`, `00401d94` | `SAR EAX,1; DEC EAX` | Convierte la distancia y excluye el terminador |
-| `00401d95` | `RET` sin inmediato | El caller limpia el argumento |
-| Caller `00401bee`, `00401bf3` | `CALL 00401d80; ADD ESP,4` | Confirma la limpieza por caller de cuatro bytes |
+| `00401d80` | `MOV EAX,[ESP+4]` | First argument is a stack pointer value |
+| `00401d84` | 16-bit `MOV CX,[EAX]` | Reads one two-byte unit |
+| `00401d87`, `00401d88` | Two `INC EAX` instructions | Advances two bytes per iteration |
+| `00401d89`, `00401d8c` | `TEST CX,CX; JNZ 00401d84` | Continues through the first zero unit |
+| `00401d8e` | `SUB EAX,[ESP+4]` | Byte distance uses 32-bit arithmetic |
+| `00401d92`, `00401d94` | `SAR EAX,1; DEC EAX` | Converts distance and excludes terminator |
+| `00401d95` | `RET` without immediate | Caller cleans the argument |
+| Caller `00401bee`, `00401bf3` | `CALL 00401d80; ADD ESP,4` | Confirms four-byte caller cleanup |
 
-Para cadenas habituales devuelve la cantidad de unidades no nulas. No cuenta
-puntos de código Unicode: un par de sustitutos ocupa dos unidades; tampoco valida
-UTF-16. No existe control de puntero nulo ni límite de longitud. El input debe
-permanecer legible durante la lectura. El caller utiliza el resultado para recorrer
-un buffer de palabras y buscar un separador `0x005c`, como muestra `original/callers.txt`.
+For ordinary strings, the return is the number of nonzero 16-bit units. This
+counts units, not Unicode code points; a surrogate pair contributes two and UTF-16
+is not validated. No null check or length bound exists. Input must remain readable
+through the terminator. The caller uses the result to search a word buffer for
+`0x005c`, as shown in `original/callers.txt`.
 
-No se supone que el nombre original fuera `wcslen`. Se mantiene el símbolo por
-binario y RVA. Las convenciones y nombres propuestos por Ghidra son pistas; la
-firma adoptada usa `const void *` para representar también entradas no alineadas.
+The original name is not assumed to be wcslen. The binary/RVA symbol is retained.
+Ghidra signatures are hints; `const void *` represents unaligned inputs as well.
 
-## Decisiones de implementación
+## Source decisions
 
-El fuente usa una copia intrínseca de dos bytes para permitir punteros no alineados.
-En el target Windows x86 probado produce lecturas de 16 bits, sin imports nuevos.
-Un contador unsigned conserva el módulo de 32 bits de la distancia. El helper
-`finish_byte_delta` reproduce el desplazamiento aritmético y decremento originales
-sin overflow de enteros signed en C. No se usa `wchar_t`, cuyo tamaño depende de
-la plataforma, ni se sustituye silenciosamente `SAR` por división unsigned.
+A fixed two-byte intrinsic copy permits unaligned input. The tested Windows x86
+builds perform 16-bit reads without new imports. An unsigned byte counter preserves
+32-bit modular distance. `finish_byte_delta` reproduces SAR and DEC without signed
+C overflow. The source avoids platform-dependent wchar_t and an incorrect unsigned
+replacement for arithmetic shift.
 
-El catálogo no registra dependencias de este bloque: no contiene llamadas ni
-accesos globales. Los helpers del fuente pertenecen a esta implementación y no
-representan funciones adicionales recuperadas del original.
+The catalog records no dependencies: the original has no calls or global accesses.
+Internal source helpers belong to this implementation; they are not additional
+functions recovered from the original.
 
-## Pruebas ejecutadas
+## Executed comparisons
 
-`tests/differential.py` compila fuente real como COFF i386 Windows en `-O0` y `-O2`.
-Carga el código y resuelve exclusivamente relocaciones REL32 internas a `.text`;
-un import o relocación externa hace fallar la prueba. Emula el código recompilado
-y los 22 bytes originales con el mismo ABI de entrada.
+`tests/differential.py` builds i386 Windows COFF at `-O0` and `-O2`. It loads machine
+code and applies only REL32 relocations within .text; external dependencies fail.
+The compiled function and original 22 bytes receive the same ABI inputs.
 
-Pasaron **4.068 comparaciones**: 3.042 recorridos, cuatro fallos de entrada y
-1.022 pruebas de la cola aritmética. Se comprobaron retorno, ESP, argumento,
-registros preservados, input intacto y direcciones/tamaños de lecturas. Los casos
-incluyen cadena vacía, sustitutos, unidades altas, ceros internos, alineación impar,
-terminador junto a una página no mapeada y entradas aleatorias reproducibles.
+**4,068 comparisons passed:** 3,042 scans, four invalid-input faults, and 1,022
+arithmetic-tail cases. Tests check EAX, ESP, argument preservation, nonvolatile
+registers, unchanged input, and exact read addresses/widths. Cases include empty
+input, surrogate/high units, embedded zeros, odd alignment, guard-page terminators,
+and deterministic randomized inputs.
 
-Al producirse un fallo de memoria se comparan acceso, dirección y tamaño del fallo
-junto con las lecturas previas. No se exige igualdad de EAX en una ejecución que no
-retorna: es un registro volátil y no hay resultado definido del caller en ese caso.
-Los deltas enormes se prueban entrando en la cola original `SUB/SAR/DEC/RET`, sin
-pretender haber escaneado objetos de varios gigabytes.
+Fault comparisons check access type/address/width and previous reads. EAX is not
+compared on fault because no defined return occurred and it is volatile. Large
+deltas are tested by entering original SUB/SAR/DEC/RET with synthetic register
+state, without claiming a multi-gigabyte string was fully scanned.
 
-Los logs y el entorno están en `logs/` y `proof.json`. El estado es **ready**:
-pruebas terminadas y listo para revisión independiente. No existe todavía un
-registro de revisión ni una reconstrucción completa de `CONFIG.exe`.
+Logs and environment are under `logs/` and `proof.json`. Status is **ready** for
+independent review; there is no review record or complete CONFIG.exe rebuild.
+Project-authored source uses BSD-3-Clause; original evidence retains its own rights.

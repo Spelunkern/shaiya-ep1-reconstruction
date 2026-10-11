@@ -1,56 +1,42 @@
-# Distribución pública de binarios
+# Public binary distribution
 
-Los 27 archivos PE del corpus —23 binarios únicos— están versionados directamente
-en `Client/` y `Server/`, con sus rutas originales. No requieren Git LFS, extracción
-de la data del juego ni descarga de un paquete de varios gigabytes. El total de
-binarios es **20.910.273 bytes**.
+Git directly includes 27 original PE paths, representing 23 unique binaries,
+under `Client/` and `Server/`. No Git LFS or external client assets are needed.
+Binary file sizes total **20,910,273 bytes**.
 
 ```bash
 git clone https://github.com/Spelunkern/shaiya-ep1-reconstruction.git
 cd shaiya-ep1-reconstruction
-python3 tools/reverse.py verify
+python tools/reverse.py verify
 ```
 
-`verify` comprueba por defecto todos los binarios publicados, con tamaño y SHA-256.
-`manifests/public-binaries.json` lista exactamente lo que se distribuye.
-`GameGuard.des` está incluido porque es un PE, aunque no use extensión `.exe`.
-Las DLL idénticas comparten `binary_id`; el SHA-256 completo es la autoridad.
+On Windows use `py -3.12`; see [WINDOWS.md](WINDOWS.md). Verification defaults to
+published PE paths and checks size/SHA-256. `manifests/public-binaries.json` defines
+exact distribution scope. GameGuard.des is included because it is PE regardless
+of extension. Identical DLLs share IDs; full SHA-256 remains authoritative.
 
-## Descarga de solo los binarios
+## Binary-only download
 
-La [versión v0.1.0](https://github.com/Spelunkern/shaiya-ep1-reconstruction/releases/tag/v0.1.0)
-incluye `shaiya-ep1-binaries.zip`, `binaries-bundle.json` y `SHA256SUMS`.
-El ZIP contiene únicamente esos PE y su manifiesto público. Puede extraerse en
-la raíz de una copia del repositorio para restaurar los originales.
+[Release v0.1.1](https://github.com/Spelunkern/shaiya-ep1-reconstruction/releases/tag/v0.1.1)
+provides `shaiya-ep1-binaries.zip`, `binaries-bundle.json`, and `SHA256SUMS`.
+The ZIP contains the PE files, public manifest, and licensing notices. Original
+binaries are not relicensed by the project BSD license; see [NOTICE.md](../NOTICE.md).
 
-Para regenerar el paquete desde un clon verificado:
+Regenerate from a verified clone with `python tools/reverse.py bundle`.
+The command uses an explicit PE allowlist and does not include other local
+Client/Server files. Outputs are under `dist/`. Move an existing generated bundle
+aside before rebuilding. On Linux verify downloads with `sha256sum -c SHA256SUMS`;
+Windows has `Get-FileHash` commands in its guide. Then use `verify` after extraction.
 
-```bash
-python3 tools/reverse.py bundle
-```
+## Private historical corpus
 
-El resultado queda en `dist/`. El comando usa una lista explícita de archivos PE;
-no incluye otros archivos presentes localmente dentro de `Client/` o `Server/`.
-Antes de extraer una descarga, verificar su checksum con `sha256sum -c SHA256SUMS`.
-Después, `verify` contrasta los archivos contra el inventario del repositorio.
+Client data.saf/data.sah, external maps, original databases, configurations, and
+logs are excluded. The maintainer's original folders remain intact locally;
+`tools/check_distribution.py` prevents other originals from being tracked under
+those folders.
 
-## Lo que permanece local
-
-Los archivos de data del cliente (`data.saf`, `data.sah`), mapas externos, bases
-de datos, configuraciones y logs del corpus preparado no se publican. Las carpetas
-originales siguen intactas en la estación del mantenedor, pero Git solo contiene
-las rutas PE autorizadas. CI ejecuta `tools/check_distribution.py` para impedir
-que se añadan otros originales bajo esas carpetas.
-
-`manifests/originals.json` conserva hashes y rutas del inventario histórico de
-394 archivos porque participa de la baseline congelada. No contiene los archivos
-ni sus contenidos. Para verificar aquel corpus completo, disponible únicamente
-en la copia local del mantenedor:
-
-```bash
-python3 tools/reverse.py verify --full-corpus
-```
-
-Ese comando no forma parte de la preparación del contribuidor. La distribución
-actual permite análisis estático y pruebas aisladas por bloque. Las pruebas del
-juego o servidor completos requerirán datos de prueba en una fase de integración.
+`manifests/originals.json` preserves the historical 394-file inventory because it
+participates in the frozen baseline. It records paths and hashes, not file contents.
+Only maintainers with that complete private corpus use `verify --full-corpus`.
+Contributors do not need those files. Whole-system integration will require
+separately defined test data beyond this static-analysis corpus.
