@@ -1,6 +1,6 @@
 """Check identity, coverage, reservation and evidence integrity boundaries."""
 import json
-from pathlib import Path, PureWindowsPath
+from pathlib import Path, PureWindowsPath, PurePosixPath
 import random
 import tempfile
 import unittest
@@ -152,7 +152,7 @@ class WorkflowTests(unittest.TestCase):
         for unsafe in ('C:/work%PATH%', 'C:/work&other', 'C:/work!name'):
             with self.assertRaisesRegex(ValueError, 'metacharacters'):
                 r.ghidra_invocation(ghidra, [unsafe], windows=True)
-        command = r.ghidra_invocation(Path('/opt/ghidra'), ['/tmp/projects', 'test'], windows=False)
+        command = r.ghidra_invocation(PurePosixPath('/opt/ghidra'), ['/tmp/projects', 'test'], windows=False)
         self.assertEqual(command, ['/opt/ghidra/support/analyzeHeadless', '/tmp/projects', 'test'])
 
     def test_reservation_collision_owner_and_start(self):
