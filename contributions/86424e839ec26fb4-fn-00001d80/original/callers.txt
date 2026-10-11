@@ -10,4 +10,4 @@
   401bf9:	b9 5c 00 00 00       	mov    $0x5c,%ecx
   401bfe:	8b ff                	mov    %edi,%edi
   401c00:	66 39 0c 45 08 83 40 	cmp    %cx,0x408308(,%eax,2)
-  401c07:	00 
+  401c07:	00
